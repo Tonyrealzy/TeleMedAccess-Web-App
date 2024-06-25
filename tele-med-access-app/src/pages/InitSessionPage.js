@@ -1,5 +1,5 @@
-import React from "react";
-import getRequest from "../services/GetService";
+import React, { useEffect, useState } from "react";
+import GetRequest from "../services/GetService";
 import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 import Logger from "../components/Logger";
@@ -8,14 +8,17 @@ import PrimaryButton from "../components/Button/PrimaryButton";
 const InitSessionPage = () => {
   const { startSession } = useAuth();
   const navigate = useNavigate();
+  const [loginSessionID, setLoginSessionID] = useState('');
 
-  const initialiseSession = async () => {
+  const startMedicalSession = async () => {
     try {
-      const response = await getRequest('InitSession');
+      const response = await GetRequest('InitSession');
       const sessionID = response.data.SessionID;
       Logger(sessionID);
 
       startSession(sessionID);
+      setLoginSessionID(sessionID);
+      Logger(loginSessionID);
       navigate("/addSymptoms");
 
     } catch(error) {
@@ -23,8 +26,14 @@ const InitSessionPage = () => {
     }
   };
 
+  useEffect = (() => {
+    startMedicalSession();
+  }, []);
+
   return (
     <div className="page">
+      <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
+      <br></br>
       <p>
         Here you will give the user more information about what he/she would be
         doing.
@@ -41,9 +50,16 @@ const InitSessionPage = () => {
         diagnosis.
       </p>
 
-      <PrimaryButton onClick={initialiseSession}>
-        Start A Session With Doctor
-      </PrimaryButton>
+      {loginSessionID ? (
+        <PrimaryButton onClick={navigate('/addSymptoms')}>
+          Proceed
+        </PrimaryButton>
+      ) : (
+        <PrimaryButton onClick={startMedicalSession}>
+          Start A Session With Doctor
+        </PrimaryButton>
+      )
+    }
     </div>
   );
 };

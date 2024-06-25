@@ -1,25 +1,18 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [sessionID, setSessionID] = useState(null);
+    const [sessionID, setSessionID] = useState(localStorage.getItem('sessionID'));
 
-    useEffect(() => {
-        const storedSessionID = sessionStorage.getItem('sessionID');
-        if (storedSessionID) {
-            setSessionID(storedSessionID);
-        }
-    }, []);
-
-    const startSession = (id) => {
-        setSessionID(id);
-        sessionStorage.setItem('sessionID', id);
+    const startSession = (sessionID) => {
+        localStorage.setItem('sessionID', sessionID);
+        setSessionID(sessionID);
     };
 
     const endSession = () => {
+        localStorage.removeItem('sessionID');
         setSessionID(null);
-        sessionStorage.removeItem('sessionID');
     };
 
     return (
