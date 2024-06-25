@@ -5,9 +5,9 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [sessionID, setSessionID] = useState(localStorage.getItem('sessionID'));
 
-    const startSession = (id) => {
-        localStorage.setItem('sessionID', id);
-        setSessionID(id);
+    const startSession = (sessionID) => {
+        localStorage.setItem('sessionID', sessionID);
+        setSessionID(sessionID);
     };
 
     const endSession = () => {
