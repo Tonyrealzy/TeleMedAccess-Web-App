@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const PostRequest = async (endpoint, data) => {
 	try {
-		const response = await axios.get(`${BASE_URL}/${endpoint}`, data, {
+		const response = await axios.post(`${BASE_URL}/${endpoint}`, data, {
             headers: {
                 'Content-Type': 'application/json',
                 'x-rapidapi-key': API_KEY,

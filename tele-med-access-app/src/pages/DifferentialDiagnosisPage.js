@@ -21,7 +21,9 @@ const DifferentialDiagnosisPage = () => {
         recommendations.
       </p>
 
-      <PrimaryButton onClick={endMedicalSession}>End your Session</PrimaryButton>
+      <p>Do you want to end this session with your virtual doctor?</p>
+      <PrimaryButton onClick={endMedicalSession}>Yes, end session</PrimaryButton>
+      <PrimaryButton onClick={() => navigate('/')}>No, save session</PrimaryButton>
     </div>
   );
 };
