@@ -24,9 +24,9 @@ export const AcceptTermsPostRequest = async (sessionId, value) => {
 };
 
 export const AddSymptomPostRequest = async (
-  sessionId,
   symptomName,
-  symptomValue
+  symptomValue,
+  sessionId
 ) => {
   try {
     const response = await axios.post(`${BASE_URL}/UpdateFeature`, null, {
