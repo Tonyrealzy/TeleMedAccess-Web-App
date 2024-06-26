@@ -16,7 +16,7 @@ const InitSessionPage = () => {
 
   const startMedicalSession = async () => {
     try {
-      const response = await GetSessionIdRequest("InitSession");
+      const response = await GetSessionIdRequest();
       const loginSessionID = response.data.SessionID;
       Logger(loginSessionID);
       startSession(loginSessionID);
@@ -39,7 +39,6 @@ const InitSessionPage = () => {
 
     try {
       const response = await AcceptTermsPostRequest(
-        "AcceptTermsOfUse",
         sessionID,
         checkboxValue
       );

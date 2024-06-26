@@ -4,9 +4,9 @@ import axios from "axios";
 const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export const AcceptTermsPostRequest = async (endpoint, sessionId, value) => {
+export const AcceptTermsPostRequest = async (sessionId, value) => {
   try {
-    const response = await axios.post(`${BASE_URL}/${endpoint}`, null, {
+    const response = await axios.post(`${BASE_URL}/AcceptTermsOfUse`, null, {
       headers: {
         "x-rapidapi-key": API_KEY,
         "x-rapidapi-host": "endlessmedicalapi1.p.rapidapi.com",
@@ -24,13 +24,12 @@ export const AcceptTermsPostRequest = async (endpoint, sessionId, value) => {
 };
 
 export const AddSymptomPostRequest = async (
-  endpoint,
   sessionId,
   symptomName,
   symptomValue
 ) => {
   try {
-    const response = await axios.post(`${BASE_URL}/${endpoint}`, null, {
+    const response = await axios.post(`${BASE_URL}/UpdateFeature`, null, {
       headers: {
         "x-rapidapi-key": API_KEY,
         "x-rapidapi-host": "endlessmedicalapi1.p.rapidapi.com",
@@ -49,12 +48,11 @@ export const AddSymptomPostRequest = async (
 };
 
 export const RemoveSymptomPostRequest = async (
-  endpoint,
   sessionId,
   symptomName
 ) => {
   try {
-    const response = await axios.post(`${BASE_URL}/${endpoint}`, null, {
+    const response = await axios.post(`${BASE_URL}/DeleteFeature`, null, {
       headers: {
         "x-rapidapi-key": API_KEY,
         "x-rapidapi-host": "endlessmedicalapi1.p.rapidapi.com",
