@@ -12,7 +12,7 @@ import { useAuth } from "../AuthContext";
 const UserSymptomsPage = () => {
   const navigate = useNavigate();
   const { sessionID } = useAuth();
-  const [userSymptom, setUserSymptom] = useState("");
+  // const [userSymptom, setUserSymptom] = useState("");
 
   const fetchAllSymptoms = async () => {
     try {
@@ -45,7 +45,7 @@ const UserSymptomsPage = () => {
   Logger(sessionID);
 
   const removeSymptom = async () => {
-    const symptomName = "";
+    const symptomName = "Age";
 
     try {
       const response = await RemoveSymptomPostRequest(symptomName, sessionID);
@@ -71,7 +71,13 @@ const UserSymptomsPage = () => {
       <PrimaryButton onClick={fetchAllSymptoms}>Fetch All Symptoms</PrimaryButton>
       <br></br>
       <br></br>
-      <PrimaryButton onClick={addSymptom}>Add Symptoms</PrimaryButton>
+      <PrimaryButton onClick={addSymptom}>Add Symptom</PrimaryButton>
+      <br></br>
+      <br></br>
+      <PrimaryButton onClick={removeSymptom}>Remove Symptom</PrimaryButton>
+      <br></br>
+      <br></br>
+      <PrimaryButton onClick={() => navigate('/diagnosis')}>Proceed</PrimaryButton>
     </div>
   );
 };
