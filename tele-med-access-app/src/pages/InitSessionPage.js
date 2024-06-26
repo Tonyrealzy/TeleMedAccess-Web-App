@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import GetRequest from "../services/GetService";
-import PostRequest from "../services/PostService";
+import { GetSessionIdRequest } from "../services/GetService";
+import { AcceptTermsPostRequest } from "../services/PostService";
 import { useAuth } from "../AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import Logger from "../components/Logger";
@@ -16,13 +16,13 @@ const InitSessionPage = () => {
 
   const startMedicalSession = async () => {
     try {
-      const response = await GetRequest("InitSession");
+      const response = await GetSessionIdRequest("InitSession");
       const loginSessionID = response.data.SessionID;
       Logger(loginSessionID);
       startSession(loginSessionID);
       setGottenSessionID(!gottenSessionID);
     } catch (error) {
-      console.log("Failed to fetch SessionID: ", error.messa);
+      console.log("Failed to fetch SessionID: ", error.message);
     }
   };
 
@@ -38,17 +38,14 @@ const InitSessionPage = () => {
     }
 
     try {
-      const payload = {
-        SessionID: sessionID,
-        passphrase: checkboxValue,
-      };
-      Logger(payload);
-
-      // await PostRequest("AcceptTermsOfUse", payload);
-      // navigate("/addSymptoms");
-      const postResponse = await PostRequest("AcceptTermsOfUse", payload);
+      const response = await AcceptTermsPostRequest(
+        "AcceptTermsOfUse",
+        sessionID,
+        checkboxValue
+      );
+      const postResponse = response.data;
       Logger(postResponse);
-      if (postResponse.status === 200) {
+      if (postResponse.status === "ok") {
         Logger(postResponse);
         navigate("/addSymptoms");
       } else {
@@ -61,7 +58,7 @@ const InitSessionPage = () => {
 
   return (
     <div className="page">
-      {!sessionID ? (
+      {sessionID ? (
         <div>
           <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           <p>
