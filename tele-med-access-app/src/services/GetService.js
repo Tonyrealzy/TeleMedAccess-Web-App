@@ -20,7 +20,7 @@ export const GetSessionIdRequest = async () => {
 
 export const GetAllSymptomsRequest = async () => {
 	try {
-		const response = await axios.get(`${BASE_URL}/GetOutcomes`, {
+		const response = await axios.get(`${BASE_URL}/GetFeatures`, {
             headers: {
                 'x-rapidapi-key': API_KEY,
                 'x-rapidapi-host': 'endlessmedicalapi1.p.rapidapi.com',
@@ -41,6 +41,20 @@ export const GetAnalysisRequest = async (sessionId) => {
             },
             params: {
                 SessionID: sessionId
+            },
+        });
+        return response;
+	} catch (error) {
+		Logger('Error fetching data: ', error);
+	};
+};
+
+export const GetAllSuggestedOutcomes = async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/GetOutcomes`, {
+            headers: {
+                'x-rapidapi-key': API_KEY,
+                'x-rapidapi-host': 'endlessmedicalapi1.p.rapidapi.com',
             },
         });
         return response;
