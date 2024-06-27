@@ -8,6 +8,7 @@ const LandingPage = () => {
 
   return (
     <div className="page">
+      <h3>Landing Page</h3>
       <p>
         Here's the landing page!!!
         <br></br>

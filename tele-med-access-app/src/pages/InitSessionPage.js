@@ -9,7 +9,7 @@ import PrimaryButton from "../components/Button/PrimaryButton";
 const InitSessionPage = () => {
   const { startSession, sessionID } = useAuth();
   const navigate = useNavigate();
-  const [gottenSessionID, setGottenSessionID] = useState(false);
+  // const [gottenSessionID, setGottenSessionID] = useState(false);
   const [checked, setChecked] = useState(false);
   const checkboxValue =
     "I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com";
@@ -18,15 +18,13 @@ const InitSessionPage = () => {
     try {
       const response = await GetSessionIdRequest();
       const loginSessionID = response.data.SessionID;
-      Logger(loginSessionID);
+      Logger('Login Session ID: ', loginSessionID);
       startSession(loginSessionID);
-      setGottenSessionID(true);
+      // setGottenSessionID(true);
     } catch (error) {
       console.log("Failed to fetch SessionID: ", error.message);
     }
   };
-
-  // Logger(gottenSessionID);
 
   const acceptTermsConditions = () => {
     setChecked(!checked);
@@ -40,11 +38,11 @@ const InitSessionPage = () => {
     try {
       const response = await AcceptTermsPostRequest(sessionID, checkboxValue);
       const postResponse = response.data;
-      // Logger(postResponse);
+      // Logger('AcceptTerms PostRequest response: ', postResponse);
       if (postResponse.status === "ok") {
         navigate("/addSymptoms");
       } else {
-        Logger(postResponse);
+        Logger('AcceptTermsPostRequest Error: ', postResponse);
       }
     } catch (error) {
       Logger("Post request error: ", error);
@@ -56,11 +54,12 @@ const InitSessionPage = () => {
       {sessionID ? (
         <div>
           <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
+          <br></br>
+          <h3>Initiate Session-With-Doctor Page</h3>
           <p>
             This page is displayed if the user already has started a session
             before now on their account.
           </p>
-          {gottenSessionID === false ? (
             <div>
               <p>
                 <input
@@ -79,16 +78,12 @@ const InitSessionPage = () => {
                 Proceed
               </PrimaryButton>
             </div>
-          ) : (
-            <div>
-              <p>No content!</p>
-            </div>
-          )}
         </div>
       ) : (
         <div>
           <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           <br></br>
+          <h3>Initiate Session With Doctor Page</h3>
           <section>
             <p>
               This page is displayed if the user is creating a session for the
@@ -101,7 +96,6 @@ const InitSessionPage = () => {
             </PrimaryButton>
             <br></br>
             <br></br>
-
             <div>
               <p>
                 <input
