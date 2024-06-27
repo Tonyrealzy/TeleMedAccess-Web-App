@@ -1,0 +1,144 @@
+.features-section {
+    font-size: 30px;
+    color: #ffffff;
+    padding: 2rem 1rem;
+  
+}
+
+.features-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.feature {
+   
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+   
+    animation: bounceAnimation 2s infinite alternate, pointerAnimation 1.5s infinite; /* Animation properties */
+    position: relative;
+}
+
+
+@keyframes bounceAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px); /* Adjust distance as needed */
+    }
+}
+
+@keyframes pointerAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05); /* Adjust scale and distance as needed */
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.feature:hover {
+    animation:none;
+}
+
+.feature-icon img {
+    width: 300px;
+    height: auto;
+}
+
+.feature-details {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.feature-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.feature-description {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    
+    .feature {
+       
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 0.5rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        animation: none;
+        position: none;
+    }
+
+    .feature-icon img {
+        width: 200px;
+        height: auto;
+    }
+    
+    .feature-details {
+        padding: 1rem 0;
+        text-align: center;
+    }
+    
+    .feature-title {
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+    }
+    
+    .feature-description {
+        font-size: 1.0rem;
+        color: #ffffff;
+    }
+    
+    
+}

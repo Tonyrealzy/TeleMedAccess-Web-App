@@ -4,6 +4,9 @@ import PrimaryButton from '../components/Button/PrimaryButton';
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/Navbar/NavBar";
 import doctor from "../assets/hero/doctor.jpg"
+import About from "../components/About/About";
+import Features from "../components/Features/Features";
+import Teams from "../components/Teams/Teams";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -22,6 +25,9 @@ const LandingPage = () => {
                 <img src={doctor} alt="Hero Pic" className="hero-pic" />
             </div>
         </section>
+        <About />
+        <Features />
+        <Teams />
     </div>
     </> 
   );
