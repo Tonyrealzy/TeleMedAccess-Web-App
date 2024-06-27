@@ -3,16 +3,21 @@ import { useAuth } from "../AuthContext";
 import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import { GetAnalysisRequest } from "../services/GetService";
+import Logger from "../components/Logger";
 
 
 const DifferentialDiagnosisPage = () => {
-  const { endSession } = useAuth();
+  const { sessionID, endSession } = useAuth();
   const navigate = useNavigate();
 
   const getDifferentialAnalysis = async () => {
     try {
-      const response = await GetAnalysisRequest();
-      const analysisResult = response.data.data;
+      const response = await GetAnalysisRequest(sessionID);
+      const analysisResult = response.data;
+      const Diseases = analysisResult.Diseases;
+      const VariableImportances = analysisResult.VariableImportances;
+      Logger('Diseases: ', Diseases);
+      Logger('VariableImportances: ',VariableImportances);
       Logger(analysisResult);
     } catch (error) {
       Logger("Error ", error.message);
@@ -26,6 +31,8 @@ const DifferentialDiagnosisPage = () => {
 
   return (
     <div>
+      <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
+      <br></br>
       <h3>Differential-Diagnosis Page</h3>
       <aside>
       <p>
@@ -36,8 +43,8 @@ const DifferentialDiagnosisPage = () => {
       </aside>
 
       <p>Do you want to end this session with your virtual doctor?</p>
-      <PrimaryButton onClick={endMedicalSession}>Yes, end session</PrimaryButton>
-      <PrimaryButton onClick={() => navigate('/')}>No, save session</PrimaryButton>
+      <PrimaryButton onClick={endMedicalSession}>Yes</PrimaryButton>
+      <PrimaryButton onClick={() => navigate('/')}>No</PrimaryButton>
     </div>
   );
 };
