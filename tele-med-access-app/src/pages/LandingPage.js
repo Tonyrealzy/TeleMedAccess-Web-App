@@ -8,6 +8,7 @@ import About from "../components/About/About";
 import Features from "../components/Features/Features";
 import Teams from "../components/Teams/Teams";
 import FAQ from "../components/FAQ/Faq";
+import Footer from "../components/Footer/Footer";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ const LandingPage = () => {
       <section id="faq">
         <FAQ />
       </section>
+
+      <Footer />
     </div>
   );
 };
