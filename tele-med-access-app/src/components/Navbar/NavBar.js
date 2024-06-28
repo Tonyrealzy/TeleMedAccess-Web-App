@@ -9,7 +9,7 @@ const NavBar = () => {
     return (
         <>
             <nav className="navigation" role="navigation">
-            <a href="/" className="logo"><img src="logo-image.png" alt="TEMA" /></a>
+            <a href="/" className="logo">TEMA</a>
                 <div className="navmenu">
                     <img
                         className="navbtn"
