@@ -7,9 +7,10 @@ import Logger from "../components/Logger";
 import PrimaryButton from "../components/Button/PrimaryButton";
 
 const InitSessionPage = () => {
-  const { startSession, sessionID } = useAuth();
+  const { startSession, sessionID, agreed, setAgreed } = useAuth();
   const navigate = useNavigate();
-  // const [gottenSessionID, setGottenSessionID] = useState(false);
+  const [gottenSessionID, setGottenSessionID] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [checked, setChecked] = useState(false);
   const checkboxValue =
     "I have read, understood and I accept and agree to comply with the Terms of Use of EndlessMedicalAPI and Endless Medical services. The Terms of Use are available on endlessmedical.com";
@@ -18,9 +19,9 @@ const InitSessionPage = () => {
     try {
       const response = await GetSessionIdRequest();
       const loginSessionID = response.data.SessionID;
-      Logger('Login Session ID: ', loginSessionID);
+      // Logger('Login Session ID: ', loginSessionID);
       startSession(loginSessionID);
-      // setGottenSessionID(true);
+      setGottenSessionID(true);
     } catch (error) {
       console.log("Failed to fetch SessionID: ", error.message);
     }
@@ -40,9 +41,12 @@ const InitSessionPage = () => {
       const postResponse = response.data;
       // Logger('AcceptTerms PostRequest response: ', postResponse);
       if (postResponse.status === "ok") {
+        setAgreedToTerms(!agreedToTerms);
+        setAgreed(true);
         navigate("/addSymptoms");
+        Logger("Agreed state: ", agreed);
       } else {
-        Logger('AcceptTermsPostRequest Error: ', postResponse);
+        Logger("AcceptTermsPostRequest Error: ", postResponse);
       }
     } catch (error) {
       Logger("Post request error: ", error);
@@ -51,7 +55,7 @@ const InitSessionPage = () => {
 
   return (
     <div className="page">
-      {sessionID ? (
+      {agreed === true ? (
         <div>
           <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           <br></br>
@@ -60,24 +64,11 @@ const InitSessionPage = () => {
             This page is displayed if the user already has started a session
             before now on their account.
           </p>
-            <div>
-              <p>
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={acceptTermsConditions}
-                  value={checkboxValue}
-                />
-                I have read, understood and I accept and agree to comply with
-                the <Link to="/terms">Terms and Conditions</Link> of Use of
-                EndlessMedicalAPI and Endless Medical services.
-              </p>
-              <br></br>
-
-              <PrimaryButton onClick={handleProceed} disabled={!checked}>
-                Proceed
-              </PrimaryButton>
-            </div>
+          <div>
+            <PrimaryButton onClick={() => navigate('/addSymptoms')}>
+              Continue
+            </PrimaryButton>
+          </div>
         </div>
       ) : (
         <div>
@@ -96,24 +87,30 @@ const InitSessionPage = () => {
             </PrimaryButton>
             <br></br>
             <br></br>
-            <div>
-              <p>
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={acceptTermsConditions}
-                  value={checkboxValue}
-                />
-                I have read, understood and I accept and agree to comply with
-                the <Link to="/terms">Terms and Conditions</Link> of Use of
-                EndlessMedicalAPI and Endless Medical services.
-              </p>
-              <br></br>
 
-              <PrimaryButton onClick={handleProceed} disabled={!checked}>
-                Proceed
-              </PrimaryButton>
-            </div>
+            {gottenSessionID && (
+              <div>
+                <p>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={acceptTermsConditions}
+                    value={checkboxValue}
+                  />
+                  I have read, understood and I accept and agree to comply with
+                  the <Link to="/terms">Terms and Conditions</Link> of Use of
+                  EndlessMedicalAPI and Endless Medical services.
+                </p>
+                <br></br>
+
+                <PrimaryButton
+                  onClick={handleProceed}
+                  disabled={!checked || !gottenSessionID}
+                >
+                  Proceed
+                </PrimaryButton>
+              </div>
+            )}
           </section>
 
           <br></br>
