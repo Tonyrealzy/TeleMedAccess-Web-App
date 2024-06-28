@@ -1,120 +1,153 @@
-/* About Section */
 .about-section {
-    position: relative;
-    background-color: rgba(12, 12, 12, 0.6);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 10px;
-    z-index: 1;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.about-title {
-    display: block;
-    color: #ffffff;
-    font-size: 35px;
-    font-weight: 700;
-    letter-spacing: 1.75px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 10px;
+  color: #ffffff;
+  padding: 50px 10%;
+  margin: 30px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #04152d;
 }
 
 .about-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  background-color: #19376d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  gap: 30px;
+}
+
+.about-left {
+  background-color: #19376d;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-title {
+  background-color: #19376d;
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .about-image {
-    display: block;
-    width: 100px;
-    border-radius: 10px;
+  width: 300px;
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+}
+
+.about-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .about-items {
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-left: 20px;
-    width: 100%;
+  background-color: #19376d;
+  list-style: none;
+  padding: 0;
 }
 
 .about-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 20px;
-    list-style: none;
-    padding: 25px;
-    background-image: linear-gradient(
-        90deg,
-        rgba(165, 215, 232, 0.42) 0%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    background-size: 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 0.4s;
-}
-
-.about-item:hover {
-    background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  background: #19376d;
+  background: linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%);
+  border-radius: 10px;
+  padding: 24px;
+  transition:
+      transform 0.3s,
+      box-shadow 0.3s;
 }
 
 .about-item img {
-    margin-right: 20px;
-    width: 100px;
+  background-color: #19376d;
+  width: 80px;
 }
 
-.about-item h3 {
-    font-size: 25px;
-    font-weight: 600;
-    margin-bottom: 10px;
+.about-item-text h3 {
+  font-size: 30px;
+  font-weight: 500;
 }
 
-.about-item p {
-    font-size: 22px;
-    margin: 0;
+.about-item-text p {
+  background-color: #19376d;
+  font-size: 20px;
+  font-weight: 300;
 }
 
-/* Responsive Styles */
+.about-item:hover {
+  transform: scale(1.05);
+  background-color: #576cbc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Screen responsivenes for smaller screens/mobile */
 @media screen and (max-width: 768px) {
-    .about-section {
-        background-color: rgba(12, 12, 12, 0.6);
-        padding: 10px;
-        margin: 10px;
-    }
+  .about-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
 
-    .about-title {
-        font-size: 30px;
-    }
+  .about-left,
+  .about-right {
+      width: 100%;
+  }
 
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-    }
+  .about-image {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 0px;
+  }
 
-    .about-image {
-        display: none;
-    }
+  .about-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+  }
 
-    .about-items {
-        margin-left: 0;
-        width: 100%;
-    }
+  .about-item {
+      padding: 16px;
+      gap: 10px;
+  }
 
-    .about-item img {
-        width: 60px;
-        margin-right: 10px;
-    }
+  .about-item img {
+      width: 50px;
+  }
 
-    .about-item h3 {
-        font-size: 22px;
-    }
+  .about-item-text h3 {
+      font-size: 20px;
+  }
 
-    .about-item p {
-        font-size: 16px;
-    }
+  .about-item-text p {
+      font-size: 16px;
+  }
+
+  .about-section {
+      margin: 0;
+  }
+
+/* */
+.about-title {
+  background-color: #19376d;
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+}
+
 }

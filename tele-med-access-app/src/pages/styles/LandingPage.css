@@ -1,16 +1,11 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap');
 
-/* Customs */
+
 :root {
   
   --font-family: "Sen", sans-serif;
   --color-priamary: #ffffff;
-  --color-text: #fff;
-  --color-primary: #576cbc; /** button*/
-  --color-secondary: #19376d; /** projects*/
-  --color-dark: #0b2447; /** main*/
-  --color-bg: #04152d; /** about*/
 }
 
 * {

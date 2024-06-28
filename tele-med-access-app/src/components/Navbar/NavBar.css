@@ -60,7 +60,6 @@
         position: absolute;
         top: 60px;
         right: 1rem;
-        background-color: #2b4667;
         padding: 0.5rem; 
         border-radius: 5px;
         background-color: rgba(43, 70, 103, 0.8);
@@ -73,6 +72,10 @@
         background-color: rgba(43, 70, 103, 0.8);
     }
 
+    .listItems a {
+        background-color: rgba(43, 70, 103, 0.8);
+    }
+    
     .listItems.show {
         display: flex;        
     }
