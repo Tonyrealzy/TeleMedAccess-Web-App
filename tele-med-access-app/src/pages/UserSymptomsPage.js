@@ -31,7 +31,8 @@ const UserSymptomsPage = () => {
   };
 
   const handleSelectedSymptomChange = (event) => {
-    setSelectedSymptom(event.target.value);
+    const symptomValue = parseInt(event.target.value, 10);
+    setSelectedSymptom(symptomValue);
   };
 
   const fetchAllSymptoms = async () => {
@@ -74,7 +75,11 @@ const UserSymptomsPage = () => {
     }
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    Logger('Symptom: ', symptomName);
+    Logger('Value: ', selectedSymptom);
+  };
 
   return (
     <div>
@@ -108,7 +113,7 @@ const UserSymptomsPage = () => {
           <section>
             <label htmlFor="symptomValue">{currentParameter.text} ({currentParameter.min} to {currentParameter.max}): </label>
             <input
-              type="range"
+              type="number"
               id="symptomValue"
               min={currentParameter.min}
               max={currentParameter.max}
