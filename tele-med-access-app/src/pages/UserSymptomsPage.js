@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/Button/PrimaryButton";
-import { GetAllSymptomsRequest } from "../services/GetService";
 import Logger from "../components/Logger";
 import {
   AddSymptomPostRequest,
@@ -33,16 +32,6 @@ const UserSymptomsPage = () => {
     const symptomValue = parseInt(event.target.value, 10);
     setSelectedSymptom(symptomValue);
   };
-
-  // const fetchAllSymptoms = async () => {
-  //   try {
-  //     const response = await GetAllSymptomsRequest();
-  //     const allSymptoms = response.data.data;
-  //     Logger("All Symptoms: ", allSymptoms);
-  //   } catch (error) {
-  //     Logger("Error: ", error.message);
-  //   }
-  // };
 
   const addSymptom = async () => {
     // const symptomName = "WeightLoss";
