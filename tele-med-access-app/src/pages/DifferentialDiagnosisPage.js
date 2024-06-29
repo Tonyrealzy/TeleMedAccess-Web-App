@@ -44,7 +44,7 @@ const DifferentialDiagnosisPage = () => {
 
       <p>Do you want to end this session with your virtual doctor?</p>
       <PrimaryButton onClick={endMedicalSession}>Yes</PrimaryButton>
-      <PrimaryButton onClick={() => navigate('/')}>No</PrimaryButton>
+      <PrimaryButton onClick={() => navigate(-1)}>No</PrimaryButton>
     </div>
   );
 };

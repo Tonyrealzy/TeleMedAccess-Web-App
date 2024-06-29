@@ -8,11 +8,32 @@ import {
   RemoveSymptomPostRequest,
 } from "../services/PostService";
 import { useAuth } from "../AuthContext";
+import AllSymptoms from "../models/SymptomsModel.json";
+
 
 const UserSymptomsPage = () => {
   const navigate = useNavigate();
   const { sessionID } = useAuth();
-  // const [userSymptom, setUserSymptom] = useState("");
+  const [symptomName, setSymptomName] = useState("");
+  const [selectedSymptom, setSelectedSymptom] = useState(null);
+  const [currentParameter, setCurrentParameter] = useState(null);
+
+  React.useEffect(() => {
+    if (symptomName) {
+      const parameter = AllSymptoms.find(item => item.text === symptomName);
+      setCurrentParameter(parameter);
+      setSelectedSymptom(parameter.default);
+    }
+  }, [symptomName]);
+
+  const handleSymptomNameChange = (event) => {
+    setSymptomName(event.target.value);
+  };
+
+  const handleSelectedSymptomChange = (event) => {
+    const symptomValue = parseInt(event.target.value, 10);
+    setSelectedSymptom(symptomValue);
+  };
 
   const fetchAllSymptoms = async () => {
     try {
@@ -54,6 +75,12 @@ const UserSymptomsPage = () => {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    Logger('Symptom: ', symptomName);
+    Logger('Value: ', selectedSymptom);
+  };
+
   return (
     <div>
       <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
@@ -70,6 +97,36 @@ const UserSymptomsPage = () => {
       <PrimaryButton onClick={fetchAllSymptoms}>Fetch All Symptoms</PrimaryButton>
       <br></br>
       <br></br>
+
+      <form onSubmit={handleSubmit}>
+        <section>
+          <label htmlFor="symptomName">Symptom Experienced:</label>
+          <select id="symptomName" value={selectedSymptom} onChange={handleSymptomNameChange}>
+            <option value="">--Select Symptom--</option>
+            {AllSymptoms.map((item) => (
+              <option key={item.name} value={item.name}>{item.text}</option>
+            ))}
+          </select>
+        </section>
+
+        {currentParameter && (
+          <section>
+            <label htmlFor="symptomValue">{currentParameter.text} ({currentParameter.min} to {currentParameter.max}): </label>
+            <input
+              type="number"
+              id="symptomValue"
+              min={currentParameter.min}
+              max={currentParameter.max}
+              value={selectedSymptom}
+              onChange={handleSelectedSymptomChange}
+            />
+            <span>{selectedSymptom}</span>
+          </section>
+        )}
+      </form>
+      <br></br>
+      <br></br>
+
       <PrimaryButton onClick={addSymptom}>Add Symptom</PrimaryButton>
       <br></br>
       <br></br>
