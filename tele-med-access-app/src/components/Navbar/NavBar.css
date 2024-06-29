@@ -1,17 +1,18 @@
+@import "../../pages/styles/LandingPage.css";
+
 /* navbar.css */
 .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
-    color: #fff;
-    margin: 1rem;
+    padding: 1.5rem;
+    color: var(--color-text);
 }
 
 .logo {
     font-size: 2.5rem;
     text-decoration: none;
-    color: #fff;
+    color: var(--color-text);
 }
 
 .navmenu {
@@ -43,7 +44,7 @@
 }
 
 .listItems li a {
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
     font-size: 1.5rem;
 }

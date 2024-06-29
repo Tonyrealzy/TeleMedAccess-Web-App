@@ -18,7 +18,7 @@ const LandingPage = () => {
       <NavBar />
       <section className="section" id="home">
         <div className="hero-content">
-          <h1 className="title">Welcome to TeleMedAccess-Web-App</h1>
+          <h1 className="title">Welcome to TEMA</h1>
           <p className="description">
             Bridging the gap between healthcare and rural communities.
           </p>

@@ -1,6 +1,8 @@
+@import "../../pages/styles/LandingPage.css";
+
 .faq-wrapper {
   padding: 20px;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .container {

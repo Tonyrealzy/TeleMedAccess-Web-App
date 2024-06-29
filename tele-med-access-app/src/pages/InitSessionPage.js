@@ -54,7 +54,7 @@ const InitSessionPage = () => {
   };
 
   return (
-    <div className="page">
+    <div className="page1">
       {agreed === true ? (
         <div>
           <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
