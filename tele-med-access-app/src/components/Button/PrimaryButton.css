@@ -9,7 +9,7 @@
 }
 
 .primary-button:disabled {
-    background-color: #cccccc;
+    background-color: darkslategray;
     cursor: not-allowed;
 }
 
