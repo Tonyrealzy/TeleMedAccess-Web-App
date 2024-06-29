@@ -1,22 +1,52 @@
 import React from "react";
-import './styles/LandingPage.css';
-import PrimaryButton from '../components/Button/PrimaryButton';
+import "./styles/LandingPage.css";
+import PrimaryButton from "../components/Button/PrimaryButton";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/Navbar/NavBar";
+import doctor from "../assets/hero/doctor.jpg";
+import About from "../components/About/About";
+import Features from "../components/Features/Features";
+import Teams from "../components/Teams/Teams";
+import FAQ from "../components/FAQ/Faq";
+import Footer from "../components/Footer/Footer";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="page">
-      <h3>Landing Page</h3>
-      <p>
-        Here's the landing page!!!
-        <br></br>
-        There should be a GET_STARTED button here
-        that navigates the user to the Initialise Session page.
-      </p>
+      <NavBar />
+      <section className="section" id="home">
+        <div className="hero-content">
+          <h1 className="title">Welcome to TeleMedAccess-Web-App</h1>
+          <p className="description">
+            Bridging the gap between healthcare and rural communities.
+          </p>
+          <PrimaryButton onClick={() => navigate("/initSession")}>
+            GET STARTED
+          </PrimaryButton>
+        </div>
+        <div className="hero-image-container">
+          <img src={doctor} alt="Hero Pic" className="hero-pic" />
+        </div>
+      </section>
 
-      <PrimaryButton onClick={() => navigate('/initSession')}>GET STARTED</PrimaryButton>
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="features">
+        <Features />
+      </section>
+
+      <section id="teams">
+        <Teams />
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
+
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,82 @@
+/* navbar.css */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    color: #fff;
+    margin: 1rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navmenu {
+    display: flex;
+    align-items: center;
+}
+
+.navbtn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.listItems {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; 
+    margin-right: 10px; 
+    padding: 0;
+}
+
+.listItems.show {
+    display: block;
+}
+
+.listItems li {
+    display: inline;
+}
+
+.listItems li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+/* Media query for smaller screens/mobile devices */
+@media (max-width: 768px) {
+    .navbtn {
+        display: block;
+    }
+
+    .listItems {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 1rem;
+        padding: 0.5rem; 
+        border-radius: 5px;
+        background-color: rgba(43, 70, 103, 0.8);
+        font-size: 1.5rem;
+
+    }
+
+    .listItems li {
+        margin-bottom: 0.25rem;
+        background-color: rgba(43, 70, 103, 0.8);
+    }
+
+    .listItems a {
+        background-color: rgba(43, 70, 103, 0.8);
+    }
+    
+    .listItems.show {
+        display: flex;        
+    }
+}
