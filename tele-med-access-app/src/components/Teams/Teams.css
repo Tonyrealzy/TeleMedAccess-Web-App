@@ -1,0 +1,91 @@
+.team-section {
+    padding: 0px 0;
+}
+
+h2 {
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+    width: 300px;
+    background-color:  #19376d;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-avatar img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.member-info {
+    text-align: center;
+}
+
+.member-name {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.member-role {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.member-description {
+    font-size: 1rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.member-social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.member-social-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.member-social-links a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.member-social-links a:hover {
+    color: lemonchiffon;
+}
+
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .team-member {
+        width: 100%;
+    }
+}
