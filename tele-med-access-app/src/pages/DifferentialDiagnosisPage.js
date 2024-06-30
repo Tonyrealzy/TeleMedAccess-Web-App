@@ -14,11 +14,13 @@ const DifferentialDiagnosisPage = () => {
     try {
       const response = await GetAnalysisRequest(sessionID);
       const analysisResult = response.data;
-      const Diseases = analysisResult.Diseases;
-      const VariableImportances = analysisResult.VariableImportances;
-      Logger('Diseases: ', Diseases);
-      Logger('VariableImportances: ',VariableImportances);
-      Logger(analysisResult);
+      if (analysisResult.status === 'ok') {
+        const Diseases = analysisResult.Diseases;
+        const VariableImportances = analysisResult.VariableImportances;
+        Logger('Diseases: ', Diseases);
+        Logger('VariableImportances: ',VariableImportances);
+        Logger(analysisResult);
+      }
     } catch (error) {
       Logger("Error ", error.message);
     }

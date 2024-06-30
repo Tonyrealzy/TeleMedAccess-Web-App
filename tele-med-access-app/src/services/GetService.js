@@ -49,6 +49,7 @@ export const GetAnalysisRequest = async (sessionId) => {
 	};
 };
 
+
 export const GetAllSuggestedOutcomes = async () => {
 	try {
 		const response = await axios.get(`${BASE_URL}/GetOutcomes`, {

@@ -24,8 +24,28 @@ const UserSymptomsPage = () => {
   const [selectedItemValueTest, setSelectedItemValueTest] = useState(null);
   const [selectedItemValueOtherTest, setSelectedItemValueOtherTest] =
     useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
+  const [rows, setRows] = useState([]);
 
   const handleParameterChange = (name, value) => {
+    const selectedItem = AllSymptoms.find((item) => item.name === name);
+
+    if (selectedItem) {
+      const { min, max } = selectedItem;
+
+      if (
+        (min !== undefined && value < min) ||
+        (max !== undefined && value > max)
+      ) {
+        setValidationErrors({
+          ...validationErrors,
+          [name]: "Value out of range.",
+        });
+        return;
+      } else {
+        setValidationErrors({});
+      }
+    }
     setSelectedParameters({
       ...selectedParameters,
       [name]: value,
@@ -104,7 +124,7 @@ const UserSymptomsPage = () => {
         if (targetValue > item.min && targetValue < item.max) {
           setSelectedItemValueFeature(targetValue);
         } else {
-          setSelectedItemValueFeature(item.min);
+          setSelectedItemValueFeature(item.default);
         }
       }}
     />
@@ -113,6 +133,8 @@ const UserSymptomsPage = () => {
   const renderTestBasedInput = (item) => (
     <input
       type="number"
+      min={item.min}
+      max={item.max}
       value={selectedParameters[item.name]}
       onChange={(e) => {
         handleParameterChange(item.name, parseInt(e.target.value, 10));
@@ -120,7 +142,7 @@ const UserSymptomsPage = () => {
         if (targetValue > item.min && targetValue < item.max) {
           setSelectedItemValueTest(targetValue);
         } else {
-          setSelectedItemValueTest(item.min);
+          setSelectedItemValueTest(item.default);
         }
       }}
     />
@@ -128,7 +150,7 @@ const UserSymptomsPage = () => {
 
   const renderOtherTestBasedInput = (item) => (
     <select
-      value={selectedParameters[item.choices.value] || "2"}
+      value={selectedParameters[item.choices.value]}
       onChange={(e) => {
         handleParameterChange(item.name, e.target.value);
         setSelectedItemValueOtherTest(e.target.value);
@@ -156,6 +178,7 @@ const UserSymptomsPage = () => {
       );
       const addedSymptom = response.data;
       Logger("Added Symptom: ", addedSymptom);
+      handleAddRow();
     } catch (error) {
       Logger("Error: ", error.message);
     }
@@ -213,22 +236,53 @@ const UserSymptomsPage = () => {
   };
 
   const removeSymptom = async () => {
-    // const symptomName = "Age";
+    const symptomName = selectedItemCaseChoice ||
+    selectedItemCaseFeature ||
+    selectedItemCaseTests ||
+    selectedItemCaseOtherTests;
+    const SessionID = sessionID;
 
     try {
-      // const response = await RemoveSymptomPostRequest(symptomName, sessionID);
-      // const removedSymptom = response.data;
-      // Logger("Removed Symptom: ", removedSymptom);
+      const response = await RemoveSymptomPostRequest(symptomName, SessionID);
+      const removedSymptom = response.data;
+      Logger("Removed Symptom: ", removedSymptom);
     } catch (error) {
       Logger("Error: ", error.message);
     }
   };
 
+  const handleAddRow = () => {
+    const newRow = {
+      name:
+        selectedItemCaseChoice ||
+        selectedItemCaseFeature ||
+        selectedItemCaseTests ||
+        selectedItemCaseOtherTests,
+      value:
+        selectedParameters[selectedItemValueChoice] ||
+        selectedParameters[selectedItemValueFeature] ||
+        selectedParameters[selectedItemValueTest] ||
+        selectedParameters[selectedItemValueOtherTest]
+    };
+    setRows([...rows, newRow]);
+    // setSelectedItemCaseChoice('');
+    // setSelectedItemCaseFeature('');
+    // setSelectedItemCaseTests('');
+    // setSelectedItemCaseOtherTests('');
+    // setSelectedParameters({});
+  };
+  const handleDeleteRow = async (index) => {
+    await removeSymptom();
+    setRows(rows.filter((_, rowIndex) => rowIndex!== index));
+  };
+
+  const isButtonDisabled = Object.keys(validationErrors).length > 0;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Logger("Symptom: ", symptomName);
     // Logger("Value: ", selectedSymptom);
-    navigate("/diagnosis");
+    // navigate("/diagnosis");
   };
 
   return (
@@ -279,7 +333,7 @@ const UserSymptomsPage = () => {
           <aside>
             <PrimaryButton
               onClick={addFeature}
-              disabled={!selectedItemValueFeature}
+              disabled={!selectedItemValueFeature || isButtonDisabled}
             >
               Add Feature
             </PrimaryButton>
@@ -357,7 +411,7 @@ const UserSymptomsPage = () => {
           <aside>
             <PrimaryButton
               onClick={addTestResult}
-              disabled={!selectedItemValueTest}
+              disabled={!selectedItemValueTest || isButtonDisabled}
             >
               Add Result
             </PrimaryButton>
@@ -402,6 +456,30 @@ const UserSymptomsPage = () => {
         </section>
       </form>
       <br></br>
+
+      <section>
+        <h3>Selected Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={index}>
+                <td>{row.name}</td>
+                <td>{selectedParameters[row.name]}</td>
+                <td>
+                  <button onClick={() => handleDeleteRow(index)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
       <br></br>
       <PrimaryButton
         onClick={handleSubmit}
