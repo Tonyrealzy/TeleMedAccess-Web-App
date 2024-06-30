@@ -114,7 +114,7 @@
       "subcategory4": ""
     },
     {
-      "text": "Supplied air O2 % (FiO2 %), Room air: 21%, Nasal cannula: 1L/min 24%, 2L/min 28%, 3L/min 32%, 4L/min 36%, 5L/min 40%, 6L/min 44% *",
+      "text": "Supplied air O2 % (FiO2 %): Room air: 21%, Nasal cannula: 1L/min 24%, 2L/min 28%, 3L/min 32%, 4L/min 36%, 5L/min 40%, 6L/min 44% *",
       "laytext": "Supplied air O2 % (FiO2 %), Room air: 21%, Nasal cannula: 1L/min 24%, 2L/min 28%, 3L/min 32%, 4L/min 36%, 5L/min 40%, 6L/min 44% *",
       "name": "Fio2",
       "type": "integer",
