@@ -1,4 +1,127 @@
-.page {
+@import "../../pages/styles/LandingPage.css";
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.InitSession {
+    background: linear-gradient(45deg, var(--color-secondary), var(--color-primary), var(--color-bg));
+    min-height: 100vh;
+    color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+    animation: colors 12s ease-in-out infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    flex-grow: 1;
+}
+
+.image-top img {
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 60px;
+    
+}
+
+.session-text {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.session-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 40px;
+}
+
+.session-description {
+    margin: 30px;
+    font-size: 1em;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.session-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 20px;
+    margin: 60px;
+}
+
+.session-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid var(--color-lightbg);
+    opacity: 0.80;
+}
+
+.text-box {
+    background-color: var(--color-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: -10px;
+    color: var(--color-text);
+    border: 2px solid var(--color-lightbg);
+    height: auto;
+    width: 400px;
+    z-index: 2;
+}
+
+
+
+#continue {
+    margin-left: 30px;
+}
+
+#backbtn {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .session-text {
+        margin-bottom: 20px;
+    }
+
+    .session-image {
+        align-items: center;
+    }
 }
