@@ -8,6 +8,7 @@ import {
 } from "../services/PostService";
 import { useAuth } from "../AuthContext";
 import AllSymptoms from "../models/SymptomsModel.json";
+import './styles/UserSymptomsPage.css'
 
 const UserSymptomsPage = () => {
   const navigate = useNavigate();
@@ -176,8 +177,8 @@ const UserSymptomsPage = () => {
         selectedSymptom,
         sessionID
       );
-      const addedSymptom = response.data;
-      Logger("Added Symptom: ", addedSymptom);
+      const addedFeature = response.data;
+      Logger("Added Symptom: ", addedFeature);
       handleAddRow();
     } catch (error) {
       Logger("Error: ", error.message);
@@ -259,10 +260,10 @@ const UserSymptomsPage = () => {
         selectedItemCaseTests ||
         selectedItemCaseOtherTests,
       value:
-        selectedParameters[selectedItemValueChoice] ||
-        selectedParameters[selectedItemValueFeature] ||
-        selectedParameters[selectedItemValueTest] ||
-        selectedParameters[selectedItemValueOtherTest]
+        selectedParameters[selectedItemCaseChoice] ||
+        selectedParameters[selectedItemCaseFeature] ||
+        selectedParameters[selectedItemCaseTests] ||
+        selectedParameters[selectedItemCaseOtherTests]
     };
     setRows([...rows, newRow]);
     // setSelectedItemCaseChoice('');
@@ -280,9 +281,11 @@ const UserSymptomsPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Logger("Symptom: ", symptomName);
-    // Logger("Value: ", selectedSymptom);
-    // navigate("/diagnosis");
+    if (selectedItemValueFeature && selectedItemValueChoice) {
+      navigate("/diagnosis");
+    } else {
+      return
+    }
   };
 
   return (
@@ -310,7 +313,7 @@ const UserSymptomsPage = () => {
             <option value="">---Personal features---</option>
             {featureCaseEntries.map((item) => (
               <option key={item.value} value={item.value}>
-                {item.text}
+                {item.name}
               </option>
             ))}
           </select>
@@ -318,11 +321,11 @@ const UserSymptomsPage = () => {
           {selectedItemCaseFeature && (
             <aside>
               {featureCaseEntries
-                .filter((item) => item.text === selectedItemCaseFeature)
+                .filter((item) => item.name === selectedItemCaseFeature)
                 .map((item) => (
                   <aside key={item.name}>
                     <label>
-                      {item.name} ({item.min} to {item.max}):{" "}
+                      {item.text} ({item.min} to {item.max}):{" "}
                     </label>
                     {renderFeatureBasedInput(item)}
                   </aside>
@@ -471,7 +474,7 @@ const UserSymptomsPage = () => {
             {rows.map((row, index) => (
               <tr key={index}>
                 <td>{row.name}</td>
-                <td>{selectedParameters[row.name]}</td>
+                <td>{row.value}</td>
                 <td>
                   <button onClick={() => handleDeleteRow(index)}>Delete</button>
                 </td>
@@ -483,7 +486,7 @@ const UserSymptomsPage = () => {
       <br></br>
       <PrimaryButton
         onClick={handleSubmit}
-        disabled={!selectedItemCaseFeature || !selectedItemValueChoice}
+        disabled={!selectedItemValueFeature && !selectedItemValueChoice}
       >
         Proceed
       </PrimaryButton>
