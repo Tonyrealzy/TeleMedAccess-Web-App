@@ -17,6 +17,8 @@ body {
     background-size: 400% 400%;
 }
 
+/* Background Animations */
+
 @keyframes colors {
     0% {
         background-position: 0 50%;
@@ -87,20 +89,34 @@ body {
     border-radius: 50%;
     border: 2px solid var(--color-lightbg);
     opacity: 0.80;
+    animation: swing 3.0s ease-in-out infinite;
 }
+
+/* image animation not in session*/
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-20deg); }
+    75% { transform: rotate(15deg); }
+}  
+    
 
 .text-box {
     background-color: var(--color-secondary);
     padding: 20px;
     border-radius: 10px;
-    margin-top: -10px;
+    margin-top: 10px;
     color: var(--color-text);
     border: 2px solid var(--color-lightbg);
     height: auto;
     width: 400px;
-    z-index: 2;
 }
+/* accept button */
 
+.session-accept {
+    margin-left: 20px;
+
+}
 
 
 #continue {
@@ -111,6 +127,10 @@ body {
     margin-top: 30px;
     margin-left: 20px;
 }
+
+
+
+/** small screen */
 
 @media screen and (max-width: 768px) {
     .content {
@@ -123,5 +143,16 @@ body {
 
     .session-image {
         align-items: center;
+    }
+
+    .text-box {
+        background-color: var(--color-secondary);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        color: var(--color-text);
+        border: 2px solid var(--color-lightbg);
+        height: auto;
+        width: 300px;
     }
 }

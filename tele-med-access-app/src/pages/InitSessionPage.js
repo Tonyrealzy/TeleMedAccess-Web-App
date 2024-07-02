@@ -57,84 +57,91 @@ const InitSessionPage = () => {
 
   return (
     <div className="InitSession">
-      {agreed === true ? (
+      {agreed ? (
         <>
-        <span id="backbtn">
+          <span id="backbtn">
             <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           </span>
-        <div className="top">
-        <div className="content">
-          <div className="session-text">
-            <h3 className="session-title">Welcome back, TEMA User</h3>
-            <p className="session-description">
-              Your Comprehensive Health Companion
-              At TEMA, we are dedicated to bringing quality healthcare to rural and underserved areas. 
-              Our app offers you personalized health insights, easy appointment scheduling, and access to your medical records—all in one place.
-            </p>
-            <span id="continue">
-            <PrimaryButton onClick={() => navigate('/addSymptoms')}>
-              Continue
-            </PrimaryButton>
-          </span>
-          </div>
-          <div className="session-image">
-            <img src={hearticon} alt="hero" />
-            <div className="text-box">
-              <p>
-                HealthBridge provides the tools you need to manage your health effectively. From appointment scheduling to accessing your medical records, we have you covered.
-              </p>
-              <PrimaryButton onClick={() => navigate('/learnMore')}>Learn More</PrimaryButton>
+          <div className="top">
+            <div className="content">
+              <div className="session-text">
+                <h3 className="session-title">Welcome back, TEMA User</h3>
+                <p className="session-description">
+                  We're glad to see you again! At TEMA, we're committed to supporting your journey to better health. <br /><br />
+                  We're dedicated to bringing quality healthcare to rural and underserved areas. <br></br>
+                  Remember, you can always chat with our AI Doctor for assistance. Let's make today a healthy day!
+                </p>
+                <span id="continue">
+                  <PrimaryButton onClick={() => navigate('/addSymptoms')}>Continue</PrimaryButton>
+                </span>
+              </div>
+              <div className="session-image">
+                <img src={hearticon} alt="Doctor" />
+
+                <div className="text-box">
+                  <p>
+                    Discover the power of TEMA's AI Doctor—your virtual healthcare companion. Get personalized medical advice and support anytime, anywhere.
+                  </p>
+                  {/*<PrimaryButton onClick={() => navigate('/learnMore')}>Learn More</PrimaryButton>*/}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      </>
+        </>
       ) : (
-        <div>
-           <span id="backbtn">
+        <div className="InitSession">
+          <span id="backbtn">
             <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           </span>
-          <br></br>
-          <h3>Are you a new user</h3>
-          <section>
-            <p>
-              This page is displayed if the user is creating a session for the
-              first time.
-            </p>
-            <br></br>
-
-            <PrimaryButton onClick={startMedicalSession}>
-              Start A Session With Doctor
-            </PrimaryButton>
-            <br></br>
-            <br></br>
-
-            {gottenSessionID && (
-              <div>
-                <p>
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={acceptTermsConditions}
-                    value={checkboxValue}
-                  />
-                  I have read, understood and I accept and agree to comply with
-                  the <Link to="/terms">Terms and Conditions</Link> of Use of
-                  EndlessMedicalAPI and Endless Medical services.
+          <div className="top">
+            <div className="content">
+              <div className="session-text">
+                <h3 className="session-title">Are you a New User?</h3>
+                <p className="session-description">
+                  Welcome to TEMA! Your journey to better health starts here. <br /><br />
+                  We're thrilled to have you on board. At TEMA, we are dedicated to bringing quality healthcare to rural and underserved areas. 
+                  With our app, you can easily chat with our AI Doctor and get the support you need.
                 </p>
-                <br></br>
-
-                <PrimaryButton
-                  onClick={handleProceed}
-                  disabled={!checked || !gottenSessionID}
-                >
-                  Proceed
-                </PrimaryButton>
+                <span id="continue">
+                  <PrimaryButton onClick={startMedicalSession}>Start A Session With Doctor</PrimaryButton>
+                </span>
+                <br /><br /><br /><br />
+                <section className="session-accept">
+                  {gottenSessionID && (
+                    <div>
+                      <p>
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={acceptTermsConditions}
+                          value={checkboxValue}
+                        />
+                        I have read, understood, and I accept and agree to comply with the <Link to="/terms">Terms and Conditions</Link> of Use of EndlessMedicalAPI and Endless Medical services.
+                      </p>
+                      <br />
+                      <PrimaryButton
+                        onClick={handleProceed}
+                        disabled={!checked || !gottenSessionID}
+                      >
+                        Proceed
+                      </PrimaryButton>
+                    </div>
+                  )}
+                </section>
               </div>
-            )}
-          </section>
-
-          <br></br>
+              <div className="session-image">
+                <a href="https://www.freepik.com/" alt="Freepik">
+                <img src={hearticon} alt="Heart" />
+                </a>
+                <div className="text-box">
+                  <p>
+                   TEMA provides the tools you need to manage your health effectively. Whether you're seeking medical advice from our AI Doctor or accessing your health information through EndlessMedicalAPI, we have you covered.
+                  </p>
+                  {/*<PrimaryButton onClick={() => navigate('/learnMore')}>Learn More</PrimaryButton>*/}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
