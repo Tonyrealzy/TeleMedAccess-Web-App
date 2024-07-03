@@ -13,8 +13,8 @@ const DifferentialDiagnosisPage = () => {
   const getDifferentialAnalysis = async () => {
     try {
       const response = await GetAnalysisRequest(sessionID);
-      const analysisResult = response.data;
-      if (analysisResult.status === 'ok') {
+      const analysisResult = response.json();
+      if (analysisResult.data.status === 'ok') {
         const Diseases = analysisResult.Diseases;
         const VariableImportances = analysisResult.VariableImportances;
         Logger('Diseases: ', Diseases);

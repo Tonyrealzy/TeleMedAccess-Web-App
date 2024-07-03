@@ -288,6 +288,7 @@ const UserSymptomsPage = () => {
     }
   };
 
+
   return (
     <div>
       <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
@@ -490,6 +491,7 @@ const UserSymptomsPage = () => {
       >
         Proceed
       </PrimaryButton>
+
     </div>
   );
 };
