@@ -1,3 +1,5 @@
+@import "../../pages/styles/LandingPage.css";
+
 .features-section {
     padding: 50px 10%;
 }
@@ -8,7 +10,6 @@
 }
 
 .section-title {
-    color: #ffffff;
     text-align: center;
     font-size: 2rem;
     margin-bottom: 30px;
@@ -23,7 +24,7 @@
 .feature {
     display: flex;
     align-items: center;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
     padding: 30px;
     border-radius: 10px;
     transition:
@@ -39,7 +40,7 @@
 .feature .feature-icon {
     flex: 1;
     overflow: hidden;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
 }
 
 .feature .feature-icon img {
@@ -47,7 +48,7 @@
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
 }
 
 .feature:hover .feature-icon img {
@@ -57,7 +58,7 @@
 .feature-details {
     flex: 2;
     padding-left: 30px;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
     .features-section {
         padding: 50px 10%;
     }
@@ -68,7 +69,6 @@
     }
 
     .section-title {
-        color: #ffffff;
         text-align: center;
         font-size: 2rem;
         margin-bottom: 30px;
@@ -83,7 +83,7 @@
     .feature {
         display: flex;
         align-items: center;
-        background-color: #19376d;
+        background-color: var(--color-secondary);
         padding: 30px;
         border-radius: 10px;
         transition:
@@ -115,39 +115,37 @@
     .feature-details {
         flex: 2;
         padding-left: 30px;
-        background-color: #19376d;
+        background-color: var(--color-secondary);
     }
 
     .feature-title {
-        color: #ffffff;
         font-size: 1.5rem;
         font-weight: bold;
         margin-bottom: 10px;
-        background-color: #19376d;
+        background-color: var(--color-secondary);
     }
 
     .feature-description {
-        color: #ffffff;
         font-size: 1rem;
         line-height: 1.5;
-        background-color: #19376d;
+        background-color: var(--color-secondary);
     }
 
 }
 
 .feature-title {
-    color: #ffffff;
+    color: var(--color-text);
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
 }
 
 .feature-description {
-    color: #ffffff;
+    color: var(--color-text);
     font-size: 1rem;
     line-height: 1.5;
-    background-color: #19376d;
+    background-color: var(--color-secondary);
 }
 
 /* Media Query for Small Screens */
