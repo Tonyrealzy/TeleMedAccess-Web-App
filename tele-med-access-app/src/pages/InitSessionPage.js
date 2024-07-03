@@ -8,6 +8,7 @@ import PrimaryButton from "../components/Button/PrimaryButton";
 import "../pages/styles/InitSessionPage.css";
 import hearticon from "../assets/initsession/pic.jpg";
 
+
 const InitSessionPage = () => {
   const { startSession, sessionID, agreed, setAgreed } = useAuth();
   const navigate = useNavigate();
@@ -77,12 +78,10 @@ const InitSessionPage = () => {
               </div>
               <div className="session-image">
                 <img src={hearticon} alt="Doctor" />
-
                 <div className="text-box">
                   <p>
                     Discover the power of TEMA's AI Doctor—your virtual healthcare companion. Get personalized medical advice and support anytime, anywhere.
                   </p>
-                  {/*<PrimaryButton onClick={() => navigate('/learnMore')}>Learn More</PrimaryButton>*/}
                 </div>
               </div>
             </div>
@@ -130,14 +129,11 @@ const InitSessionPage = () => {
                 </section>
               </div>
               <div className="session-image">
-                <a href="https://www.freepik.com/" alt="Freepik">
                 <img src={hearticon} alt="Heart" />
-                </a>
                 <div className="text-box">
                   <p>
                    TEMA provides the tools you need to manage your health effectively. Whether you're seeking medical advice from our AI Doctor or accessing your health information through EndlessMedicalAPI, we have you covered.
                   </p>
-                  {/*<PrimaryButton onClick={() => navigate('/learnMore')}>Learn More</PrimaryButton>*/}
                 </div>
               </div>
             </div>
@@ -146,6 +142,7 @@ const InitSessionPage = () => {
       )}
     </div>
   );
+ 
 };
 
 export default InitSessionPage;
