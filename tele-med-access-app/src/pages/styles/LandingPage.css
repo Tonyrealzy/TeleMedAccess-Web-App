@@ -3,23 +3,29 @@
 
 
 :root {
-  
+  /* font */
   --font-family: "Sen", sans-serif;
-  --color-priamary: #ffffff;
+  
+  /* Colours */
+  --color-text: #fff;
+  --color-primary: #576cbc;
+  --color-secondary: #19376d;
+  --color-darkbg: #0b2447;
+  --color-bg: #04152d;
+  --color-lightbg: #7D94AC;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family);
-  background-color: #0b2447;
- 
+  font-family: var(--font-family); 
 }
 
 .page {
     align-items: center;
     justify-content: center;
+    background-color: var(--color-darkbg);
 }
 
 html {
@@ -32,7 +38,7 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 60px 5%;
-  color: var(--color-priamary);
+  color: var(--color-text);
 }
 
 .hero-content {

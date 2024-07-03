@@ -1,12 +1,14 @@
+@import "../../pages/styles/LandingPage.css";
+
 /* Footer Styles */
 .footer {
-  background-color:  #19376d;
-  color: #fff;
+  background-color:  var(--color-secondary);
+  color: var(--color-text);
   padding: 2rem 1rem;
 }
 
 .footer-content {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -16,29 +18,29 @@
 }
 
 .footer-section {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   flex: 1;
   margin: 1rem;
 }
 
 .footer-section h3 {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   margin-bottom: 1rem;
 }
 
 .footer-section ul {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   list-style: none;
   padding: 0;
 }
 
 .footer-section ul li {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   margin-bottom: 0.5rem;
 }
 
 .footer-section ul li a {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   color: #fff;
   text-decoration: none;
   transition: color 0.3s;
@@ -49,13 +51,13 @@
 }
 
 .footer-section p {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   margin: 0.5rem 0;
 }
 
 
 .logo-text {
-  background-color:  #19376d;
+  background-color:  var(--color-secondary);
   font-size: 1.5rem;
   font-weight: bold;
 }
