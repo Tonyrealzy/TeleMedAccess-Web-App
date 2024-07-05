@@ -2,12 +2,10 @@ import Logger from "../components/Logger";
 import { httpRequest } from "../models/Request";
 
 const API_URL = process.env.REACT_APP_HEALTHILY_BASE_URL;
-const Token = process.env.REACT_APP_HEALTHILY_API_TOKEN;
 
-
-export const initialQuery = async (query) => {
+export const initialQuery = async (token, query) => {
   const header = {
-    Authorization: `Bearer ${Token}`,
+    Authorization: `Bearer ${token}`,
   };
 
   const { body, status } = await httpRequest(
@@ -30,17 +28,17 @@ export const initialQuery = async (query) => {
   return body;
 };
 
-export const sendResponseQuery = async (query) => {
+export const sendResponseQuery = async (token, query) => {
   const header = {
-    Authorization: `Bearer ${Token}`,
+    Authorization: `Bearer ${token}`,
   };
-  const { body } = await httpRequest(API_URL, query, header, "POST");
+  const { body } = await httpRequest(`${API_URL}/chat`, query, header, "POST");
   return body;
 };
 
-export const search = async (query) => {
+export const search = async (token, query) => {
   const header = {
-    Authorization: `Bearer ${Token}`,
+    Authorization: `Bearer ${token}`,
   };
   const searchEndpoint = `${process.env.REACT_APP_HEALTHILY_BASE_URL}/search/symptoms`;
 
@@ -54,9 +52,9 @@ export const search = async (query) => {
   return body;
 };
 
-export const useChatQuery = async (data) => {
+export const useChatQuery = async (token, data) => {
   const header = {
-    authorization: `Bearer ${Token}`,
+    authorization: `Bearer ${token}`,
   };
   const query = JSON.stringify(data);
 

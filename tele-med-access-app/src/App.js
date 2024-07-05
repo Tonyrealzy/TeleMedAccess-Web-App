@@ -7,6 +7,7 @@ import InitSessionPage from "./pages/InitSessionPage";
 import UserSymptomsPage from "./pages/UserSymptomsPage";
 import DifferentialDiagnosisPage from "./pages/DifferentialDiagnosisPage";
 import TermsConditionsPage from "./pages/TermsConditionsPage";
+import IntermediaryPage from "./pages/IntermediaryPage";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage/>} />
         <Route exact path="/initSession" element={<InitSessionPage/>} />
+        <Route exact path="/condition" element={<IntermediaryPage/>} />
         <Route exact path="/terms" element={<ProtectedRoute><TermsConditionsPage/></ProtectedRoute>} />
         <Route exact path="/addSymptoms" element={<ProtectedRoute><UserSymptomsPage/></ProtectedRoute>} />
         <Route exact path="/diagnosis" element={<ProtectedRoute><DifferentialDiagnosisPage/></ProtectedRoute>} />

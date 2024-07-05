@@ -1,5 +1,6 @@
-import React, {useNavigate} from 'react';
-import Logger from '../components/Logger';
+import React from 'react';
+// import Logger from '../components/Logger';
+import { useNavigate } from 'react-router-dom';
 import PrimaryButton from '../components/Button/PrimaryButton';
 
 

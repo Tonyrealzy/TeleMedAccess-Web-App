@@ -7,40 +7,36 @@ export const CenteringDiv = styled.div`
 `;
 
 export const AppContainer = styled.div`
-  ${({ theme }) => css`
     word-break: break-word;
-    @media screen and (min-width: ${theme.device.desktop}) {
+    @media screen and (min-width: '1024px') {
       position: relative;
-      width: ${theme.device.desktop};
+      width: '1024px';
       margin-top: 52px;
       justify-content: center;
       align-items: center;
     }
-    @media screen and (max-width: ${theme.device.desktop}) {
+    @media screen and (max-width: '1024px') {
       box-sizing: border-box;
-      width: ${theme.device.mobile};
+      width: '768px';
     }
-    @media screen and (max-width: ${theme.device.mobile}) {
+    @media screen and (max-width: '768px') {
       margin: 15px;
     }
-  `};
 `;
 
 export const DesktopBorderDiv = styled.div`
-  ${({ theme }) => css`
-    @media screen and (min-width: ${theme.device.desktop}) {
+    @media screen and (min-width: '1024px') {
       display: flex;
       position: relative;
-      box-shadow: 0 0 20px ${theme.shade.d};
+      box-shadow: 0 0 20px var(--color-barkbg);
       justify-content: center;
       border: 1px solid black;
       width: 1080px;
       min-height: 45rem;
-      border: 2px solid ${theme.shade.d};
+      border: 2px solid var(--color-barkbg);
       border-radius: 7px;
       overflow-y: scroll;
     }
-  `}
 `;
 
 export const StickyHeader = styled.div`
@@ -50,17 +46,15 @@ export const StickyHeader = styled.div`
   background-color: white;
 `;
 export const StatusBarDiv = styled.div`
-  ${({ theme }) => css`
     align-items: center;
     top: 0;
     left: 0;
     width: 100%;
-    @media (max-width: ${theme.device.desktop}) {
+    @media (max-width: '1024px') {
       background: transparent;
       position: absolute;
       height: 36px;
-      border-bottom: 1px solid ${theme.shade.d};
-      border-top: 1px solid ${theme.shade.d};
+      border-bottom: 1px solid var(--color-barkbg);
+      border-top: 1px solid var(--color-barkbg);
     }
-  `}
 `;
