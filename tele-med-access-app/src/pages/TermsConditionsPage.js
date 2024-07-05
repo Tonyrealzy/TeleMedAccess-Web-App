@@ -7,9 +7,11 @@ const TermsConditionsPage = () => {
   const navigate = useNavigate();
 
   return (
+    <>
     <div className="TermsandCondition">
-      <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
-      <br></br>
+    <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
+    <div className="Termscontent">
+    <br></br>
       <h1>Terms of Use Agreement</h1>
       <section>
         <h2>Acceptance</h2>
@@ -55,6 +57,7 @@ const TermsConditionsPage = () => {
           replace in-person examinations, diagnoses, and treatment.
         </p>
       </section>
+      
       <section>
         <h2>Disclaimer of Warranties</h2>
         <p>
@@ -78,6 +81,7 @@ const TermsConditionsPage = () => {
           the amount paid by you, if any, for accessing the platform.
         </p>
       </section>
+      
       <section>
         <h2>Indemnity</h2>
         <p>
@@ -89,6 +93,7 @@ const TermsConditionsPage = () => {
           rights of another.
         </p>
       </section>
+      
       <section>
         <h2>Use of the App</h2>
         <p>
@@ -101,6 +106,7 @@ const TermsConditionsPage = () => {
           the amount paid by you, if any, for accessing the platform.
         </p>
       </section>
+      
       <section>
         <h2>Copyright</h2>
         <p>
@@ -109,6 +115,7 @@ const TermsConditionsPage = () => {
           platform to engage in any fraudulent, abusive, or illegal activity.
         </p>
       </section>
+      
       <section>
         <h2>Limited License</h2>
         <p>
@@ -118,6 +125,7 @@ const TermsConditionsPage = () => {
           commercial use of the platform or its content.
         </p>
       </section>
+      
       <section>
         <h2>Limitation of Liability</h2>
         <p>
@@ -127,6 +135,7 @@ const TermsConditionsPage = () => {
           the platform is strictly prohibited.
         </p>
       </section>
+      
       <section>
         <h2>Linking</h2>
         <p>
@@ -136,6 +145,7 @@ const TermsConditionsPage = () => {
           association, approval, or endorsement on our part where none exists.
         </p>
       </section>
+      
       <section>
         <h2>Intellectual Property</h2>
         <p>
@@ -145,6 +155,7 @@ const TermsConditionsPage = () => {
           the platform by these Terms and Conditions.
         </p>
       </section>
+      
       <section>
         <h2>Software License and Ownership</h2>
         <p>
@@ -153,6 +164,7 @@ const TermsConditionsPage = () => {
           copy, modify, distribute, sell, or lease any part of our software.
         </p>
       </section>
+      
       <section>
         <h2>Acceptable Use</h2>
         <p>
@@ -162,6 +174,7 @@ const TermsConditionsPage = () => {
           or unlawful purpose.
         </p>
       </section>
+      
       <section>
         <h2>User Account</h2>
         <p>
@@ -172,6 +185,7 @@ const TermsConditionsPage = () => {
           immediately.
         </p>
       </section>
+      
       <section>
         <h2>Security and Privacy</h2>
         <p>
@@ -183,6 +197,7 @@ const TermsConditionsPage = () => {
           we handle your data.
         </p>
       </section>
+      
       <section>
         <h2>Modification to App</h2>
         <p>
@@ -192,6 +207,7 @@ const TermsConditionsPage = () => {
           discontinuation of the platform.
         </p>
       </section>
+      
       <section>
         <h2>Use Prohibited Where Contrary to Law</h2>
         <p>
@@ -200,6 +216,7 @@ const TermsConditionsPage = () => {
           compliance with all local laws applicable to your use of the platform.
         </p>
       </section>
+      
       <section>
         <h2>Governing Law and Jurisdiction</h2>
         <p>
@@ -209,6 +226,7 @@ const TermsConditionsPage = () => {
           the two countries.
         </p>
       </section>
+      
       <section>
         <h2>Termination</h2>
         <p>
@@ -219,6 +237,7 @@ const TermsConditionsPage = () => {
           account at any time by contacting our support team.
         </p>
       </section>
+      
       <section>
         <h2>Entire Agreement</h2>
         <p>
@@ -230,6 +249,9 @@ const TermsConditionsPage = () => {
         </p>
       </section>
     </div>
+      
+    </div>
+    </>
   );
 };
 

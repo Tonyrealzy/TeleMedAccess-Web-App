@@ -64,11 +64,6 @@ const Lists = [
     answer:
       "es, healthcare providers on TEMA can prescribe medications if deemed necessary during your consultation. Prescriptions can be sent to your local pharmacy or delivered to your home.",
   },
-  {
-    question: "How does TEMA handle follow-up consultations?",
-    answer:
-      "Follow-up consultations can be scheduled through the TEMA platform, ensuring continuity of care and ongoing support from your healthcare provider.",
-  },
 ];
 
 export default Lists;

@@ -77,7 +77,7 @@ const InitSessionPage = () => {
                 </span>
               </div>
               <div className="session-image">
-                <img src={hearticon} alt="Doctor" />
+                <img src={hearticon} alt="Heart" className="heart" />
                 <div className="text-box">
                   <p>
                     Discover the power of TEMA's AI Doctor—your virtual healthcare companion. Get personalized medical advice and support anytime, anywhere.

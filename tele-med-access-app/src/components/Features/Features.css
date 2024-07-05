@@ -1,9 +1,5 @@
 @import "../../pages/styles/LandingPage.css";
 
-.features-section {
-    padding: 50px 10%;
-}
-
 .features-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -12,20 +8,19 @@
 .section-title {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 30px;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 20px;
 }
 
 .feature {
     display: flex;
     align-items: center;
     background-color: var(--color-secondary);
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
     transition:
         transform 0.3s,
@@ -40,15 +35,13 @@
 .feature .feature-icon {
     flex: 1;
     overflow: hidden;
-    background-color: var(--color-secondary);
 }
 
 .feature .feature-icon img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s;
-    background-color: var(--color-secondary);
 }
 
 .feature:hover .feature-icon img {
@@ -71,7 +64,6 @@
     .section-title {
         text-align: center;
         font-size: 2rem;
-        margin-bottom: 30px;
     }
 
     .features-grid {
@@ -160,17 +152,27 @@
         padding: 0px;
     }
 
-    .feature .feature-icon {
-        margin-bottom: 20px;
-    }
-
-    .feature-details {
-        padding-left: 0;
-    }
-
     .feature .feature-icon img {
-        max-width: 50%;
+        max-width: 40%;
         height: auto;
     }
 
+    
+
+    .features-section {
+        padding: 0px 10%;
+    }
+
+    .features-content {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+
 }
+
