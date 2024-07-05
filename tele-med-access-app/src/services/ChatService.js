@@ -51,17 +51,3 @@ export const search = async (token, query) => {
 
   return body;
 };
-
-export const useChatQuery = async (token, data) => {
-  const header = {
-    authorization: `Bearer ${token}`,
-  };
-  const query = JSON.stringify(data);
-
-  try {
-    const response = await httpRequest(`${API_URL}/chat`, query, header, 'POST');
-    return response.body;
-  } catch (error) {
-    Logger("Error sending fetching chat query: ", error);
-  }
-};

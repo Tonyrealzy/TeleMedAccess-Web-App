@@ -95,7 +95,7 @@ const GeneralScreen = ({ chatResponse, setChatMessage }) => {
       <PrimaryButton disabled={isDisabled} onClick={handleClick}>
         Continue
       </PrimaryButton>
-      <PrimaryButton disabled={chatResponse.conversation.step_back_possible}>
+      <PrimaryButton disabled={!chatResponse.conversation.step_back_possible}>
         Back
       </PrimaryButton>
     </>
