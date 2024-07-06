@@ -10,14 +10,16 @@ import TermsConditionsPage from "./pages/TermsConditionsPage";
 import IntermediaryPage from "./pages/IntermediaryPage";
 import ErrorPage from "./pages/ErrorPage";
 
-function App() {
+function App({ pageProps }) {
+  const { query } = pageProps;
+
   return (
     <AuthProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage/>} />
         <Route exact path="/initSession" element={<InitSessionPage/>} />
-        <Route exact path="/condition" element={<IntermediaryPage/>} />
+        <Route exact path="/condition" render={(props) => <IntermediaryPage {...props} query={query}/>} />
         <Route exact path="/terms" element={<ProtectedRoute><TermsConditionsPage/></ProtectedRoute>} />
         <Route exact path="/addSymptoms" element={<ProtectedRoute><UserSymptomsPage/></ProtectedRoute>} />
         <Route exact path="/diagnosis" element={<ProtectedRoute><DifferentialDiagnosisPage/></ProtectedRoute>} />

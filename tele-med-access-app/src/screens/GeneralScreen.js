@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { isNumberInput } from "../utils/chatbot";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import Logger from "../components/Logger";
+import Input from "../components/Input/Input";
 
 const formatLabel = (label) => {
   const withoutUnderscores = label.replace(/_/g, " ");
@@ -68,7 +69,7 @@ const GeneralScreen = ({ chatResponse, setChatMessage }) => {
 
   if (chatResponse.conversation.phase === undefined) {
     return (
-      <PrimaryButton onClick={() => navigate("/")}>
+      <PrimaryButton onClick={() => navigate("/condition")}>
         Start a new consultation
       </PrimaryButton>
     );
@@ -76,7 +77,7 @@ const GeneralScreen = ({ chatResponse, setChatMessage }) => {
 
   return (
     <>
-      <input
+     <Input
         value={inputValue}
         id={type}
         label={formatLabel(type)}

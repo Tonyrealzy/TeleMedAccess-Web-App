@@ -1,32 +1,13 @@
 /* eslint-disable react/display-name */
-import DateTime from "../DateTime/DateTime";
 import { HTMLInputTypeAttribute, forwardRef } from "react";
 import {
-  InputContainer,
   InputInnerContainer,
+  InputContainer,
   Label,
   Input as StyledInput,
-} from "./input.styles";
+} from "./inputStyles";
 
-type IInputProps = {
-  label: string;
-  id: string;
-  value: string;
-  required?: boolean;
-  inline?: boolean;
-  inputProps?: {};
-  hasError?: boolean;
-  type?: HTMLInputTypeAttribute;
-  disabled?: boolean;
-  onChange: (
-    e?:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
-  ) => void;
-  validation?: {};
-};
-
-const Input = forwardRef<HTMLInputElement, IInputProps>(
+const Input = forwardRef(
   (
     {
       label,
@@ -46,34 +27,33 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
   ) => {
 
     return (
-      <InputContainer className="input-container">
-        <InputInnerContainer>
+    <InputContainer className="input-container">
+      <InputInnerContainer>
         <StyledInput
-            ref={ref}
-            id={id}
-            type={type}
-            value={value}
-            placeholder=" "
-            required={required}
-            aria-invalid={hasError}
-            disabled={disabled}
-            onChange={onChange}
-            inputMode={type === "number" ? "numeric" : "text"}
-            maxLength={type === "number" ? 4 : 100}
-            minLength={type === "number" ? 4 : 1}
-            pattern={type === "number" ? "[0-9]*" : ""}
-            {...inputProps}
-            {...validation}
-            {...rest}
-          />
-
-          <Label htmlFor={id} className="input-label">
-            {label}
-          </Label>
-        </InputInnerContainer>
-      </InputContainer>
-    );
-  },
+          ref={ref}
+          id={id}
+          type={type}
+          value={value}
+          placeholder=" "
+          required={required}
+          aria-invalid={hasError}
+          disabled={disabled}
+          onChange={onChange}
+          inputMode={type === "number" ? "numeric" : "text"}
+          maxLength={type === "number" ? 4 : 100}
+          minLength={type === "number" ? 4 : 1}
+          pattern={type === "number" ? "[0-9]*" : ""}
+          {...inputProps}
+          {...validation}
+          {...rest}
+        />
+        <Label htmlFor={id} className="input-label">
+          {label}
+        </Label>
+      </InputInnerContainer>
+    </InputContainer>
+  );
+}
 );
 
 export default Input;

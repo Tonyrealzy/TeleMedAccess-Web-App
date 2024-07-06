@@ -25,6 +25,7 @@ export const initialQuery = async (token, query) => {
     return body;
   }
 
+  Logger('Initial response: ', body);
   return body;
 };
 
@@ -33,6 +34,7 @@ export const sendResponseQuery = async (token, query) => {
     Authorization: `Bearer ${token}`,
   };
   const { body } = await httpRequest(`${API_URL}/chat`, query, header, "POST");
+  Logger('Response from sendResponseQuery: ', body);
   return body;
 };
 
@@ -49,5 +51,6 @@ export const search = async (token, query) => {
     "GET"
   );
 
+  Logger('Response from search: ', body);
   return body;
 };

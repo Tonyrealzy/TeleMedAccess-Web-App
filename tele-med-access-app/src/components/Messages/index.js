@@ -2,6 +2,7 @@ import ArticleContainer from "../Article/index";
 import Heading from "../Heading/index";
 import { updateLinks } from "../../utils/link";
 import { isAnalysingScreen } from "../../utils/chatbot";
+import Logger from "../Logger";
 
 const Message = ({ message, messageNumber, scenario }) => {
   const { text, type, value } = message;
@@ -58,6 +59,8 @@ const Messages = ({ chatResponse }) => {
   if (!chatResponse) return null;
 
   const { question, conversation } = chatResponse;
+  Logger('chatResponse: ', chatResponse);
+  
   const scenario = conversation.scenario;
   const messages = question && question.messages ? question.messages : [];
   const articles = chatResponse.report?.summary?.articles_v3 || [];

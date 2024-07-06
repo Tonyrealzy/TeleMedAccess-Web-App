@@ -1,5 +1,7 @@
-import Heading from "../Heading";
-import PrimaryButton from "../Button/PrimaryButton";
+import Heading from "../../components/Heading";
+import Input from "../../components/Input/Input";
+import { FormContainer } from "./confirmation.styles";
+import PrimaryButton from "../../components/Button/PrimaryButton";
 
 const SymptomConfirmation = ({ symptom, handleClick, handleChange }) => {
   return (
@@ -10,15 +12,16 @@ const SymptomConfirmation = ({ symptom, handleClick, handleChange }) => {
       <Heading as="p" kind="hint">
         Please use short sentences. For example: Headache behind eyes
       </Heading>
-      <form>
-        <input
+      <FormContainer>
+        <Input
           value={symptom}
           id="initial_symptom"
+          label=""
           onChange={(e) =>
             handleChange("initial_symptom", e?.target.value || "")
           }
         />
-      </form>
+      </FormContainer>
       <PrimaryButton disabled={!symptom} onClick={handleClick}>
         Continue
       </PrimaryButton>

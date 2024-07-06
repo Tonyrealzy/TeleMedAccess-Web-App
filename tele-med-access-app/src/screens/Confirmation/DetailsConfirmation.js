@@ -1,8 +1,10 @@
 import React from "react";
-import Heading from "../Heading";
-import Dropdown from "../Dropdown/Dropdown";
-import PrimaryButton from "../Button/PrimaryButton";
+import Heading from "../../components/Heading";
+import { FormContainer } from "./confirmation.styles";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import Input from "../../components/Input/Input";
 import { isNumberInput } from "../../utils/chatbot";
+import PrimaryButton from "../../components/Button/PrimaryButton";
 
 const isDropDown = (data) => data.toLowerCase() === "gender";
 
@@ -59,9 +61,9 @@ const DetailsConfirmation = ({
       </Heading>
       <Heading as="p" kind="primary">
         This information can affect the outcome of the assessment so check that
-        they are correct.
+        they are correct
       </Heading>
-      <form>
+      <FormContainer>
         {Object.keys(inputsToShow).map((field) => {
           if (isDropDown(field)) {
             return (
@@ -86,26 +88,26 @@ const DetailsConfirmation = ({
           } else {
             return (
               <div key={field}>
-                <label>{formData[field]}</label>
-                <label>{formatLabel(field)}</label>
-                <input
+                <Input
                   key={field}
+                  value={formData[field]}
                   id={field}
+                  label={formatLabel(field)}
                   onChange={(e) => handleChange(field, e?.target.value || "")}
                   type={isNumberInput(field) ? "number" : "text"}
                 />
 
                 {field === "year_of_birth" &&
                 !isUserValidYearOfBirth(formData[field]) ? (
-                  <p>
+                  <h4>
                     {`Wrong input for year of birth ${formData[field]}. Minimum year: 1900, Maximum year: ${maxUserYear} (minimum age for usage is 16)`}
-                  </p>
+                  </h4>
                 ) : null}
               </div>
             );
           }
         })}
-      </form>
+      </FormContainer>
 
       <PrimaryButton disabled={isDisabled()} onClick={handleClick}>
         Continue

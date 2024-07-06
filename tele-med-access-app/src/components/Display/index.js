@@ -6,7 +6,8 @@ import Loader from "../Loader/Loader";
 import SkeletonLoader from "../Loader/Skeleton";
 import Header from "../Heading/Header";
 import Report from "../Report";
-import Confirmation from "../Confirmation/Confirmation";
+import Confirmation from "../../screens/Confirmation";
+import Logger from "../Logger";
 import { getProgressTitle } from "../../utils/progressTitle";
 
 
@@ -26,11 +27,12 @@ const Display = ({ token, query }) => {
     const initalQuery = { answer: { ...query, type: "entry" } };
     try {
       const response = await initialQuery(token, initalQuery);
+      Logger('Response from initialQuery: ', JSON.stringify(response));
       setResponse(response);
       setInitialLoading(false);
       setConfirmationScreen(false);
     } catch (error) {
-      console.error("Error doing initial fetch", error);
+      Logger("Error doing initial fetch", error);
     }
   };
 
@@ -38,10 +40,11 @@ const Display = ({ token, query }) => {
     const blankInit = async () => {
       try {
         const response = await initialQuery(token, null);
+        Logger('Response from initialQuery in useEffect: ', JSON.stringify(response));
         setResponse(response);
         setInitialLoading(false);
       } catch (error) {
-        console.error("Error doing initial fetch", error);
+        Logger("Error doing initial fetch", error);
       }
     };
 
@@ -77,15 +80,17 @@ const Display = ({ token, query }) => {
 
     try {
       const response = await sendResponseQuery(query, token);
+      const responseMsg = JSON.stringify(response);
+      Logger('Response from sendResponse: ', responseMsg);
 
-      if (isReportReady(response)) {
-        setReportData(response);
+      if (isReportReady(responseMsg)) {
+        setReportData(responseMsg);
       }
 
-      setResponse(response);
+      setResponse(responseMsg);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching results:", error);
+      Logger("Error fetching results:", error);
     }
   };
 
@@ -95,7 +100,7 @@ const Display = ({ token, query }) => {
 
       return response;
     } catch (error) {
-      console.error("Error fetching results:", error);
+      Logger("Error fetching results:", error);
     }
   };
 
@@ -104,10 +109,13 @@ const Display = ({ token, query }) => {
 
     try {
       const response = await sendResponseQuery(query, token);
-      setResponse(response);
+      const responseMsg = JSON.stringify(response);
+      Logger('Response from handleBackButton: ', responseMsg);
+
+      setResponse(responseMsg);
       setLoading(false);
     } catch (error) {
-      console.error("Error going back", error);
+      Logger("Error going back", error);
     }
   };
 

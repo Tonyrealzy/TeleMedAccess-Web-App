@@ -7,26 +7,23 @@ const Confirmation = ({ queryUserData, setChatMessage }) => {
   const [showDetailsConfirmation, setShowDetailsConfirmation] = useState(true);
   const [confirmationFormFields, setConfirmationFormFields] = useState();
   const [btnDisabled, setBtnDisabled] = useState(false);
-  
+
   useEffect(() => {
-    if (!queryUserData) {
-      return null;
-    }
-    
     const formFieldsToShow = { ...queryUserData };
     delete formFieldsToShow["initial_symptom"];
-    
+
     if (!isUserValidYearOfBirth(queryUserData["year_of_birth"])) {
       setBtnDisabled(true);
     }
-    
+
     setConfirmationFormFields(formFieldsToShow);
     setResponse(queryUserData);
   }, [queryUserData]);
-  
+
   if (!queryUserData) {
     return null;
-  }
+  } 
+
   const handleDetailsChange = (field, value) => {
     const newFormData = { ...response, [field]: value };
 
