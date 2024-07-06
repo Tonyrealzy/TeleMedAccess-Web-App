@@ -1,0 +1,117 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap');
+
+
+:root {
+  /* font */
+  --font-family: "Sen", sans-serif;
+  
+  /* Colours */
+  --color-text: #fff;
+  --color-primary: #576cbc;
+  --color-secondary: #19376d;
+  --color-darkbg: #0b2447;
+  --color-bg: #04152d;
+  --color-lightbg: #7D94AC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family); 
+}
+
+.page {
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-darkbg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Secion of the landing page */
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 5%;
+  color: var(--color-text);
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 40%;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-pic {
+  max-width: 50%; 
+  border-radius: 150px; 
+  animation: bounce 3.3s ease infinite; 
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px; 
+}
+
+.description {
+  font-size: 1.5rem; 
+  margin-bottom: 30px; 
+}
+
+/* Screen responsivenes for smaller screens/mobile */
+@media screen and (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+    order: 2;
+  }
+
+  .hero-image-container {
+    justify-content: center;
+    text-align: center; 
+    order: 1;
+  }
+
+  .hero-pic {
+    max-width: 50%;
+    border-radius: 50%;
+    animation: none;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+}

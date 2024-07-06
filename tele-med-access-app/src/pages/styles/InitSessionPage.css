@@ -1,0 +1,193 @@
+@import "../../pages/styles/LandingPage.css";
+
+.InitSession {
+    background: linear-gradient(
+        45deg,
+        var(--color-secondary),
+        var(--color-primary),
+        var(--color-bg)
+    );
+    min-height: 100vh;
+    color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+    animation: colors 12s ease-in-out infinite;
+    background-size: 400% 400%;
+}
+
+/* Background Colors Animations */
+@keyframes colors {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.image-top img {
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 80px;
+    margin: 80px;
+}
+
+.session-text {
+    flex: 1;
+    text-align: left;
+    padding: 60px;
+}
+
+.session-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 40px;
+}
+
+.session-description {
+    margin: 30px;
+    font-size: 1em;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.session-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 80px;
+    margin-right: 80px;
+}
+
+.session-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid var(--color-lightbg);
+    opacity: 0.8;
+    animation: swing 3s ease-in-out infinite;
+}
+
+/* image animation session*/
+@keyframes swing {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+}
+
+.text-box {
+    background-color: var(--color-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: var(--color-text);
+    border: 2px solid var(--color-lightbg);
+    height: auto;
+    width: 400px;
+}
+
+/* accept button */
+.session-accept {
+    margin-left: 20px;
+}
+
+#continue {
+    margin-left: 30px;
+}
+
+#backbtn {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+/** small screen */
+@media screen and (max-width: 768px) {
+    .top {
+        align-items: center;
+    }
+
+    .content {
+        display: block;
+        width: 100%;
+        justify-content: space-between;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .session-text {
+        text-align: left;
+        padding: 60px;
+    }
+
+    .session-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-left: 30px;
+    }
+
+    .session-description {
+        margin: 30px;
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .session-image {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .session-image img {
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        border: 2px solid var(--color-lightbg);
+        opacity: 0.8;
+        animation: swing 3s ease-in-out infinite;
+    }
+
+    .session-accept {
+        margin-left: 30px;
+        font-size: 0.8em;
+    }
+
+    .text-box {
+        background-color: var(--color-secondary);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        color: var(--color-text);
+        border: 2px solid var(--color-lightbg);
+        height: auto;
+        width: 250px;
+    }
+}

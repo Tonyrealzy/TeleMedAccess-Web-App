@@ -1,0 +1,140 @@
+@import "../../pages/styles/LandingPage.css";
+
+.about-section {
+  color: var(--color-text);
+  padding: 50px 10%;
+  margin: 30px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #04152d;
+}
+
+.about-content {
+  background-color: #19376d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  gap: 30px;
+}
+
+.about-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-title {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  width: 300px;
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+}
+
+.about-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-items {
+  list-style: none;
+  padding: 0;
+}
+
+.about-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  background: linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%);
+  border-radius: 10px;
+  padding: 24px;
+  transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+}
+
+.about-item img {
+  width: 80px;
+}
+
+.about-item-text h3 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.about-item-text p {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.about-item:hover {
+  transform: scale(1.05);
+  background-color: #576cbc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Screen responsivenes for smaller screens/mobile */
+@media screen and (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .about-left,
+  .about-right {
+      width: 100%;
+  }
+
+  .about-image {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 0px;
+  }
+
+  .about-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+  }
+
+  .about-item {
+      padding: 16px;
+      gap: 10px;
+  }
+
+  .about-item img {
+      width: 50px;
+  }
+
+  .about-item-text h3 {
+      font-size: 20px;
+  }
+
+  .about-item-text p {
+      font-size: 16px;
+  }
+
+  .about-section {
+      margin: 0;
+  }
+
+}
