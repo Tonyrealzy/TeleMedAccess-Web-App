@@ -27,7 +27,7 @@ const StatusBar = ({
 
   const handleModalAction = (confirmed) => {
     if (confirmed) {
-      navigate('/');
+      navigate(-1);
     }
     setShowModal(false);
   };
@@ -43,9 +43,9 @@ const StatusBar = ({
         )}
 
         <ExitButtonContainer>
-          <ExitButton onClick={handleExitClick}>
+          {/* <ExitButton onClick={handleExitClick}>
             <CloseIcon />
-          </ExitButton>
+          </ExitButton> */}
 
           {/* <Modal
             style={{ fontFamily: "Libre Franklin, sans-serif" }}

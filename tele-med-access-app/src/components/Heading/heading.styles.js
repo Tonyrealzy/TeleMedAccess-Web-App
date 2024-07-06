@@ -5,7 +5,7 @@ export const Element = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.fontsize.description};
     font-family: Poppins, sans-serif;
-    margin-top: 25px;
+    margin: 25px 0;
     &:where(.primary) {
       font-weight: ${theme.fontweight.medium};
       color: ${theme.shade.m};

@@ -6,11 +6,11 @@ import Messages from "../Messages";
 import Question from "../Question";
 import Report from "../Report";
 import { Header } from "../Header";
-import SkeletonLoader from "../Screens/Loading/Skeleton";
 import Confirmation from "../Screens/Confirmation";
 import { getProgressTitle } from "../../utils/progressTitle";
-import { LoadingScreen } from "../Screens/Loading/LoadingScreen";
-
+// import SkeletonLoader from "../Screens/Loading/Skeleton";
+// import { LoadingScreen } from "../Screens/Loading/LoadingScreen";
+import Loader from "../Screens/Loading/Loader";
 
 export const isReportReady = (response) =>
   response.report && response.report.type !== "information";
@@ -127,13 +127,13 @@ const Display = ({ token, query }) => {
   return (
     <>
       {initialLoading ? (
-        <LoadingScreen />
+        <Loader />
       ) : (
         <>
           {reportData ? (
             <Report reportData={reportData} />
           ) : loading ? (
-            <SkeletonLoader />
+            <Loader />
           ) : confirmationScreen ? (
             <>
               <Header

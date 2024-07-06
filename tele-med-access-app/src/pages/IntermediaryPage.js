@@ -5,8 +5,8 @@ import LegalScreen from "../components/Screens/Legal/Legal";
 import {
   AppContainer,
   CenteringDiv,
-  DesktopBorderDiv,
   StatusBarDiv,
+  PageRender
 } from "../components/Display/display.styles";
 import Display from "../components/Display";
 import Logger from "../components/Logger/Logger";
@@ -34,9 +34,9 @@ export default function IntermediaryPage({ query }) {
 
   return (
     <>
+    <PageRender>
       <StatusBarDiv />
       <CenteringDiv>
-        <DesktopBorderDiv>
           {!legalAgreed ? (
             <AppContainer>
               <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
@@ -46,8 +46,8 @@ export default function IntermediaryPage({ query }) {
               <Display token={token} query={query} />
             </AppContainer>
           )}
-        </DesktopBorderDiv>
       </CenteringDiv>
+    </PageRender>
     </>
   );
 }

@@ -80,7 +80,7 @@ const GeneralScreen = ({
 
   if (chatResponse.conversation.phase === undefined) {
     return (
-      <Button onClick={() => navigate('/')} fullWidth>
+      <Button onClick={() => navigate(-1)} fullWidth>
         Start a new consultation
       </Button>
     );

@@ -1,10 +1,11 @@
 import React from "react";
-import { LoadingContainer } from "./LoadingStyles";
+import { LoadingContainer } from "./Loading.styles";
+import LoadingGif from '../../../assets/images/Loader.gif';
 
 const Loader = () => {
   return (
     <LoadingContainer>
-      <img src="../../assets/images/Loader.gif" alt="Loading..." width={125} />
+      <img src={LoadingGif} alt="Loading..." style={{width:'250px'}} />
     </LoadingContainer>
   );
 };

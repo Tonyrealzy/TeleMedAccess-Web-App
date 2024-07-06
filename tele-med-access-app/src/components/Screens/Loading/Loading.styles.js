@@ -3,15 +3,15 @@ import { css, styled } from "styled-components";
 export const LoadingContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    height: 100%;
+    margin: 50% auto;
     @media screen and (min-width: ${theme.device.desktop}) {
       justify-content: center;
       align-items: center;
-      height: 100%;
     }
     @media screen and (max-width: ${theme.device.desktop}) {
       justify-content: center;
       align-items: center;
-      margin-top: 100px;
     }
   `}
 `;

@@ -91,7 +91,7 @@ const RadioLayout = ({
 
   if (isNoSymptomFoundScreen(chatResponse.conversation.phase)) {
     return (
-      <Button onClick={() => navigate('/')} fullWidth>
+      <Button onClick={() => navigate(-1)} fullWidth>
         Start a new consultation
       </Button>
     );

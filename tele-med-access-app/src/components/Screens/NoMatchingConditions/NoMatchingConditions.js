@@ -29,7 +29,7 @@ const NoMatchingConditions = ({
       ))}
       <ButtonBar
         buttonText="Start over"
-        onClick={() => navigate('/')}
+        onClick={() => navigate(-1)}
         disabled={false}
       />
     </>

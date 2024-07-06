@@ -1,46 +1,39 @@
 import { css, styled } from "styled-components";
 
 export const CenteringDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% auto;
+    @media screen and (min-width: ${theme.device.desktop}) {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+      margin: auto;
+      width: 80% !important;
+      align-items: center;
+    }
+  `};
 `;
 
 export const AppContainer = styled.div`
   ${({ theme }) => css`
     word-break: break-word;
+    margin: 1rem;
     @media screen and (min-width: ${theme.device.desktop}) {
       position: relative;
-      width: ${theme.device.desktop};
       margin-top: 52px;
       justify-content: center;
       align-items: center;
     }
     @media screen and (max-width: ${theme.device.desktop}) {
       box-sizing: border-box;
-      width: ${theme.device.mobile};
     }
     @media screen and (max-width: ${theme.device.mobile}) {
-      margin: 15px;
+      margin: 1rem 2rem;
     }
   `};
-`;
-
-export const DesktopBorderDiv = styled.div`
-  ${({ theme }) => css`
-    @media screen and (min-width: ${theme.device.desktop}) {
-      display: flex;
-      position: relative;
-      box-shadow: 0 0 20px ${theme.shade.d};
-      justify-content: center;
-      border: 1px solid black;
-      width: 1080px;
-      min-height: 45rem;
-      border: 2px solid ${theme.shade.d};
-      border-radius: 7px;
-      overflow-y: scroll;
-    }
-  `}
 `;
 
 export const StickyHeader = styled.div`
@@ -62,5 +55,14 @@ export const StatusBarDiv = styled.div`
       border-bottom: 1px solid ${theme.shade.d};
       border-top: 1px solid ${theme.shade.d};
     }
+  `}
+`;
+export const PageRender = styled.div`
+  ${({ theme }) => css`
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
   `}
 `;
