@@ -113,7 +113,7 @@ const InitSessionPage = () => {
                         I have read, understood, and I accept and agree to
                         comply with the{" "}
                         <Link to="/terms">Terms and Conditions</Link> of Use of
-                        EndlessMedicalAPI and Endless Medical services.
+                        TeleMedAccess web app.
                       </p>
                       <br />
                       <PrimaryButton
@@ -133,7 +133,7 @@ const InitSessionPage = () => {
                     TEMA provides the tools you need to manage your health
                     effectively. Whether you're seeking medical advice from our
                     AI Doctor or accessing your health information through
-                    EndlessMedicalAPI, we have you covered.
+                    TeleMedAccess app(TEMA), we have you covered.
                   </p>
                 </div>
               </div>
