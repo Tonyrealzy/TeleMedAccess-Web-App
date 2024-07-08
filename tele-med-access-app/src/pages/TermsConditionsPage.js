@@ -9,9 +9,8 @@ const TermsConditionsPage = () => {
   return (
     <>
       <div className="TermsandCondition">
-        <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
+        <PrimaryButton className='button' onClick={() => navigate(-1)}>Back</PrimaryButton>
         <div className="Termscontent">
-          <br></br>
           <h1>Terms of Use Agreement</h1>
           <section>
             <h2>Acceptance</h2>
@@ -29,7 +28,6 @@ const TermsConditionsPage = () => {
               terms carefully. If you do not agree with any part of these terms,
               you must not use our services.
             </p>
-            <br />
             <p>
               Note that the Owner may revise this Agreement at any time by
               updating this post. Use of the App after such changes are posted

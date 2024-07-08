@@ -1,33 +1,37 @@
 @import "../styles/LandingPage.css";
 
 .TermsandCondition {
-  align-items: center;
   background-color: var(--color-primary);
+  align-items: center;
   color: var(--color-text);
   height: 100%;
+  padding: 1.5rem 1rem;
+}
+.button {
+  margin: 1rem;
 }
 
-.Termscontent {
-  margin: 0 auto;
-  padding: 2rem;
-  width: 70%;
+section {
+  padding: 0.5rem 1rem;
 }
-
-.TermsandCondition h3 {
+.TermsandCondition h1 {
+  color: #f0a500;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .TermsandCondition h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  color: #f0a500;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.TermsandCondition h2:hover {
+ font-size: 0.81rem;
 }
 
 .TermsandCondition p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: 0.7rem;
 }
 
 .TermsandCondition a {
@@ -36,15 +40,22 @@
 }
 
 @media screen and (max-width: 768px) {
-  .TermsandCondition h3 {
+  .TermsandCondition {
+    padding: 1rem;
+  }
+  .button {
+    margin: 1rem 1rem 3rem 1rem;
+  }
+  .TermsandCondition h1 {
     font-size: 1rem;
   }
-
   .TermsandCondition h2 {
-    font-size: 1.5rem;
+    font-size: 0.7rem;
   }
-
+  .TermsandCondition h2:hover {
+    font-size: 0.71rem;
+   }
   .TermsandCondition p {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }
