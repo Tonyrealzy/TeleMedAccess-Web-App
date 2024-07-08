@@ -27,6 +27,7 @@ const Display = ({ token, query }) => {
   // const { logo } = query;
 
   const sendDataWithInitialResponse = async (query) => {
+    setLoading(true);
     const initalQuery = { answer: { ...query, type: "entry" } };
     console.log(initalQuery);
     try {
@@ -35,19 +36,25 @@ const Display = ({ token, query }) => {
       setResponse(response);
       setInitialLoading(false);
       setConfirmationScreen(false);
+      setLoading(false);
     } catch (error) {
       console.error("Error doing initial fetch", error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
+    setLoading(true);
+
     const blankInit = async () => {
       try {
         const response = await initialQuery(token, null);
         setResponse(response);
         setInitialLoading(false);
+        setLoading(false);
       } catch (error) {
         console.error("Error doing initial fetch", error);
+        setLoading(false);
       }
     };
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useAuth } from "../AuthContext";
+import { useAuth } from "../AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import Logger from "../components/Logger/Logger";
 import PrimaryButton from "../components/Button/PrimaryButton";
@@ -8,7 +8,7 @@ import hearticon from "../assets/initsession/pic.jpg";
 
 const InitSessionPage = () => {
   // const { agreed, setAgreed } = useAuth();
-  const { agreed, setAgreed } = useState(false);
+  const [ agreed, setAgreed ] = useState(false);
   const navigate = useNavigate();
   const [gottenSessionID, setGottenSessionID] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -29,7 +29,7 @@ const InitSessionPage = () => {
       return;
     }
     setAgreedToTerms(!agreedToTerms);
-    // setAgreed(true);
+    setAgreed(true);
     navigate("/virtualDoctor");
     Logger("Agreed state: ", agreed);
   };
@@ -96,9 +96,6 @@ const InitSessionPage = () => {
                     Start A Session With Doctor
                   </PrimaryButton>
                 </span>
-                <br />
-                <br />
-                <br />
                 <br />
                 <section className="session-accept">
                   {gottenSessionID && (

@@ -1,14 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import disableDevtool from 'disable-devtool'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import ErrorBoundary from "./components/Error";
+import disableDevtool from "disable-devtool";
 
 if (import.meta.env.NODE_ENV === "production") {
   disableDevtool();
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App/>
+    {/* <ErrorBoundary> */}
+      <App />
+    {/* </ErrorBoundary> */}
   </React.StrictMode>
-)
+);

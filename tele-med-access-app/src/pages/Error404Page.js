@@ -1,14 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
 import erropic from "../assets/error/error1.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ErrorContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: radial-gradient(circle, #576cbc, #475ea8, #385194, #294480, #19376d);
+  margin: 0 auto;
+  background-image: radial-gradient(
+    circle,
+    #576cbc,
+    #475ea8,
+    #385194,
+    #294480,
+    #19376d
+  );
 `;
 
 const ErrorContentContainer = styled.div`
@@ -20,7 +28,6 @@ const ErrorContentContainer = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   max-width: 1000px;
-  width: 100%;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -41,11 +48,11 @@ const ErrorContent = styled.div`
 const ErrorImage = styled.div`
   flex: 1;
   padding: 10px;
+  width: 80%;
 
   @media screen and (max-width: 768px) {
     order: 1;
     padding: 20px;
-    width: 80%;
     height: auto;
   }
 `;
@@ -58,6 +65,7 @@ const Image = styled.img`
 
 const Title = styled.h3`
   font-size: 9rem;
+    margin: 0 auto;
   color: #ffffff; /* Adjust this to match your --color-text variable */
 
   @media screen and (max-width: 768px) {
@@ -66,13 +74,13 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: #ffffff; /* Adjust this to match your --color-text variable */
   margin: 10px 0;
   padding-bottom: 25px;
 
   @media screen and (max-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 `;
 
@@ -104,14 +112,7 @@ const Button = styled.button`
 `;
 
 export default function Custom404() {
-  const [backToHome, setBackToHome] = useState(false);
   const navigate = useNavigate();
-
-  const handleProceed = () => {
-    setBackToHome(!backToHome);
-    navigate('/');
-  };
-
 
   return (
     <ErrorContainer>
@@ -120,13 +121,13 @@ export default function Custom404() {
           <Title>404</Title>
           <Description>Oops!!! Page Not Found</Description>
           <Description>
-            We're sorry the page you requested could not be found.
-            Please go back to the previous page or the homepage.
+            We're sorry the page you requested could not be found. Please go
+            back to the previous page or the homepage.
           </Description>
           <ButtonContainer>
-          <Button onClick={() => handleProceed} fullwidth="true">
-            Start a new symptom checker
-          </Button>
+            <Button onClick={() => navigate("/")} fullwidth="true">
+              Start a new symptom checker
+            </Button>
           </ButtonContainer>
         </ErrorContent>
         <ErrorImage>

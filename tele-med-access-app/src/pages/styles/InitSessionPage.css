@@ -39,8 +39,8 @@
 .image-top img {
     display: block;
     margin: 20px auto;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
 }
 
@@ -49,7 +49,7 @@
     width: 100%;
     justify-content: space-between;
     padding-left: 80px;
-    margin: 80px;
+    margin: 30px 80px;
 }
 
 .session-text {
@@ -61,8 +61,8 @@
     font-size: 2.5em;
     font-weight: bold;
     padding-left: 30px;
-    margin-bottom: 80px;
-    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 .session-description {
@@ -81,8 +81,9 @@
 }
 
 .session-image img {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 30px;
     border-radius: 50%;
     opacity: 0.8;
     animation: swing 3s ease-in-out infinite;
@@ -107,16 +108,18 @@
     background-color: var(--color-secondary);
     padding: 20px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin: 10px auto 0;
     color: var(--color-text);
     height: auto;
-    width: 400px;
+    width: 350px;
+    font-size: 0.8rem;
     text-align: center;
 }
 
 /* accept button */
 .session-accept {
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-top: 30px;
 }
 
 #continue {
@@ -186,6 +189,7 @@
         margin-top: 10px;
         color: var(--color-text);
         height: auto;
+        font-size: 0.7rem;
         width: 250px;
     }
 }
