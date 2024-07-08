@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 import styled from "styled-components";
-import erropic from "../assets/error/error1.jpg";
-import { useNavigate } from "react-router-dom";
 
-const ErrorContainer = styled.div`
+export const ErrorContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +17,7 @@ const ErrorContainer = styled.div`
   );
 `;
 
-const ErrorContentContainer = styled.div`
+export const ErrorContentContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -34,7 +32,7 @@ const ErrorContentContainer = styled.div`
   }
 `;
 
-const ErrorContent = styled.div`
+export const ErrorContent = styled.div`
   flex: 1;
   padding: 10px;
 
@@ -45,7 +43,7 @@ const ErrorContent = styled.div`
   }
 `;
 
-const ErrorImage = styled.div`
+export const ErrorImage = styled.div`
   flex: 1;
   padding: 10px;
   width: 80%;
@@ -57,13 +55,13 @@ const ErrorImage = styled.div`
   }
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
   width: 100%;
   height: auto;
   border-radius: 10px;
 `;
 
-const Title = styled.h3`
+export const Title = styled.h3`
   font-size: 9rem;
     margin: 0 auto;
   color: #ffffff; /* Adjust this to match your --color-text variable */
@@ -73,7 +71,7 @@ const Title = styled.h3`
   }
 `;
 
-const Description = styled.p`
+export const Description = styled.p`
   font-size: 1.2rem;
   color: #ffffff; /* Adjust this to match your --color-text variable */
   margin: 10px 0;
@@ -84,11 +82,11 @@ const Description = styled.p`
   }
 `;
 
-const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div`
   margin-top: 20px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   display: inline-block;
   padding: 10px 15px;
   font-size: 1rem;
@@ -110,30 +108,3 @@ const Button = styled.button`
     font-size: 1rem;
   }
 `;
-
-export default function Custom404() {
-  const navigate = useNavigate();
-
-  return (
-    <ErrorContainer>
-      <ErrorContentContainer>
-        <ErrorContent>
-          <Title>404</Title>
-          <Description>Oops!!! Page Not Found</Description>
-          <Description>
-            We're sorry the page you requested could not be found. Please go
-            back to the previous page or the homepage.
-          </Description>
-          <ButtonContainer>
-            <Button onClick={() => navigate("/")} fullwidth="true">
-              Start a new symptom checker
-            </Button>
-          </ButtonContainer>
-        </ErrorContent>
-        <ErrorImage>
-          <Image src={erropic} alt="Error illustration" />
-        </ErrorImage>
-      </ErrorContentContainer>
-    </ErrorContainer>
-  );
-}

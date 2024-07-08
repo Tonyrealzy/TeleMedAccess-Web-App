@@ -1,16 +1,29 @@
-import { css, styled } from "styled-components";
+import { css, styled, keyframes } from "styled-components";
+
+const gradientBackground = keyframes`
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }`;
 
 export const CenteringDiv = styled.div`
   ${({ theme }) => css`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10% auto;
-    @media screen and (min-width: ${theme.device.desktop}) {
+    margin: 5% auto;
+    @media screen and (max-width: ${theme.device.desktop}) {
       display: flex;
       flex-direction: row;
       padding: 1rem;
-      margin: auto;
+      margin: 5% auto;
       width: 80% !important;
       align-items: center;
     }
@@ -37,10 +50,12 @@ export const AppContainer = styled.div`
 `;
 
 export const StickyHeader = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: white;
+  ${({ theme }) => css`
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    color: ${theme.shade.j};
+  `};
 `;
 export const StatusBarDiv = styled.div`
   ${({ theme }) => css`
@@ -57,12 +72,25 @@ export const StatusBarDiv = styled.div`
     }
   `}
 `;
+
 export const PageRender = styled.div`
   ${({ theme }) => css`
-    background-color: white;
+    background: linear-gradient(135deg, #a8d0e6, #f0f6fc, #edf5fc, #f5f3e9);
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
+    margin: auto;
     justify-content: center;
     align-items: center;
-  `}
+    animation: ${gradientBackground} 10s ease infinite;
+    background-size: 400% 400%;
+    @media (min-width: ${theme.device.desktop}) {
+      min-height: 100vh !important;
+      padding: 0 1rem;
+    }
+    @media (max-width: ${theme.device.mobile}) {
+      min-height: 100vh !important;
+    }
+  `};
 `;

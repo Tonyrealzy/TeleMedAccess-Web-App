@@ -11,17 +11,24 @@ const LegalScreen = ({ confirmLegal, query }) => {
 
   return (
     <>
-      <Header phase="Welcome" percentage={0}/>
+      <Header phase="Welcome" percentage={0} />
       <Heading kind="heading" as="h1">
-        Now for the legal bit ...
+        Hello...
       </Heading>
+
+      <p style={{marginBottom: '1.5rem'}}>
+        Before you begin your session with the virtual doctor, we need you
+        to take care of a tiny, but very important task - agreeing to our Privacy
+        Agreement terms. But don't worry, we've made it as simple and delightful
+        as possible.
+      </p>
 
       <Checkbox
         name={"terms"}
         checked={termsAgreed}
         id={"terms"}
         onChange={() => setTermsAgreed(!termsAgreed)}
-        label={`Yes, I'm over 16 and I accept your terms.`}
+        label={`I'm over 16 and I accept your terms.`}
         simple={true}
       />
 
@@ -30,7 +37,7 @@ const LegalScreen = ({ confirmLegal, query }) => {
         checked={privacyAgreed}
         id={"privacy"}
         onChange={() => setPrivacyAgreed(!privacyAgreed)}
-        label="Yes, Healthily can process my health data to help me manage my health with recommendations, information, and care options, as described in the Privacy Policy."
+        label="TEMA can process my health data to help me manage my health with recommendations, information, and care options, as described in the Privacy Policy."
         simple={true}
       />
 

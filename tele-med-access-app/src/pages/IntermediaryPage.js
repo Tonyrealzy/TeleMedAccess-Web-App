@@ -6,49 +6,58 @@ import {
   AppContainer,
   CenteringDiv,
   StatusBarDiv,
-  PageRender
+  PageRender,
 } from "../components/Display/display.styles";
 import Display from "../components/Display";
+import Loader from "../components/Screens/Loading/Loader";
 import Logger from "../components/Logger/Logger";
 
 export default function IntermediaryPage({ query }) {
   const [legalAgreed, setLegalAgreed] = useState(false);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleConfirmLegal = () => setLegalAgreed(true);
+  const handleConfirmLegal = () => {
+    setLoading(true);
+    setLegalAgreed(true);
+    setLoading(false);
+  };
 
   useEffect(() => {
+    setLoading(true);
     const getToken = async () => {
-    try {
+      try {
         const token = await getAccessToken();
         // Logger(token);
         setToken(token);
         return token;
       } catch (error) {
-        Logger('Error fetching token: ', error);
+        Logger("Error fetching token: ", error);
       }
     };
 
     getToken();
+    setLoading(false);
   }, []);
 
   return (
-    <>
     <PageRender>
       <StatusBarDiv />
       <CenteringDiv>
-          {!legalAgreed ? (
-            <AppContainer>
+        {!legalAgreed ? (
+          <AppContainer>
+            {loading ? (
+              <Loader />
+            ) : (
               <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
-            </AppContainer>
-          ) : (
-            <AppContainer>
-              <Display token={token} query={query} />
-            </AppContainer>
-          )}
+            )}
+          </AppContainer>
+        ) : (
+          <AppContainer>
+            {loading ? <Loader /> : <Display token={token} query={query} />}
+          </AppContainer>
+        )}
       </CenteringDiv>
     </PageRender>
-    </>
   );
 }
-

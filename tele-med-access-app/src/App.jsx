@@ -1,33 +1,66 @@
 import React from "react";
+import { Suspense, lazy } from "react";
 import { ThemeCreator } from "./styles/ThemeCreator";
-import ErrorBoundary from "./components/Error";
 import GlobalStyle from "./styles/globalstyles";
 import { StyleSheetManager } from "styled-components";
+import {
+  AppContainer,
+  CenteringDiv,
+  PageRender,
+} from "./components/Display/display.styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Custom404 from "./pages/Error404Page";
-import IntermediaryPage from "./pages/IntermediaryPage";
-import LandingPage from "./pages/LandingPage";
-// import ProtectedRoute from './ProtectedRoute';
-import InitSessionPage from './pages/InitSessionPage';
-import TermsConditionsPage from './pages/TermsConditionsPage';
+import Loader from "./components/Screens/Loading/Loader";
+import { AuthProvider } from "./AuthContext";
+import ProtectedRoute from "./ProtectedRoute";
+
+const Custom404 = lazy(() => import("./pages/Error404Page"));
+const IntermediaryPage = lazy(() => import("./pages/IntermediaryPage"));
+const LandingPage = lazy(() => import("./pages/LandingPage"));
+const InitSessionPage = lazy(() => import("./pages/InitSessionPage"));
+const TermsConditionsPage = lazy(() => import("./pages/TermsConditionsPage"));
 
 function App() {
-
   return (
     <>
       <StyleSheetManager>
         <ThemeCreator>
           <GlobalStyle />
           <BrowserRouter>
-            <ErrorBoundary>
-              <Routes>
-              <Route path="/" element={<LandingPage/>} />
-              <Route exact path="/initSession" element={<InitSessionPage/>} />
-                <Route path="/virtualDoctor" element={<IntermediaryPage />} />
-                <Route exact path="/terms" element={<TermsConditionsPage/>} />
-                <Route path="*" element={<Custom404 />} />
-              </Routes>
-            </ErrorBoundary>
+            <Suspense
+              fallback={
+                <PageRender>
+                  <CenteringDiv>
+                    <AppContainer>
+                      <Loader loading={true} />
+                    </AppContainer>
+                  </CenteringDiv>
+                </PageRender>
+              }
+            >
+              <AuthProvider>
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route
+                    exact
+                    path="/initSession"
+                    element={<InitSessionPage />}
+                  />
+                  <Route element={<ProtectedRoute />}>
+                    <Route
+                      exact
+                      path="/virtualDoctor"
+                      element={<IntermediaryPage />}
+                    />
+                  </Route>
+                  <Route
+                    exact
+                    path="/terms"
+                    element={<TermsConditionsPage />}
+                  />
+                  <Route path="*" element={<Custom404 />} />
+                </Routes>
+              </AuthProvider>
+            </Suspense>
           </BrowserRouter>
         </ThemeCreator>
       </StyleSheetManager>

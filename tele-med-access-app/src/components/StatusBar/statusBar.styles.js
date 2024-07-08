@@ -20,7 +20,7 @@ export const StatusBarTitle = styled.div`
   ${({ theme }) => css`
     font-weight: ${theme.fontweight.heavy};
     width: 100%;
-    color: ${theme.secondary.i};
+    color: ${theme.secondary.j};
     line-height: ${theme.spacing.md};
     font-size: ${theme.fontsize.body};
     font-family: Poppins, sans-serif;

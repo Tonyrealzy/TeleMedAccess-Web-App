@@ -1,10 +1,10 @@
 const BASE = "16px";
 
 export const baseTheme = {
-  primaryColor: "#576cbc", // editable by query parameter
+  primaryColor: "#ffffff", // editable by query parameter
   colors: {
-    darkText: "#04152d",
-    lightText: "#0b2447",
+    darkText: "#0b2447",
+    lightText: "#333333",
   },
   shade: {
     a: "#FFFFFF",
@@ -16,7 +16,7 @@ export const baseTheme = {
     g: "#949494",
     h: "#333333",
     i: "#1F1F1F",
-    j: "#0D0D0D",
+    j: "#f0a500",
     k: "#fbfdfc",
     l: "#fffbfa",
     m: "#565656",
@@ -32,7 +32,7 @@ export const baseTheme = {
     g: "#FF9400",
     h: "#FC557B",
     i: "#1A6BD4",
-    j: "#007A66",
+    j: "#f0a500",
     k: "#A99068",
     l: "#A5317B",
     m: "#003f7c",

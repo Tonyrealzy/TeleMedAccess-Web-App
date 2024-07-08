@@ -10,7 +10,6 @@ import { isNoSymptomFoundScreen } from "../../../utils/chatbot";
 
 const RadioLayout = ({
   choices = [],
-  buttonText,
   chatResponse,
   setChatMessage,
   handleBackButton,
@@ -28,6 +27,8 @@ const RadioLayout = ({
 
     const exclude = choices.filter((choice) => choice.id !== checkedRadio);
     const include = choices.filter((choice) => choice.id === checkedRadio);
+    // const choiceNotToShow = choices.filter((choice) => choice.id === continue_assessment);
+
     const isAnswerTypeGeneric = type === "generic";
 
     const answerInputs = isAnswerTypeGeneric
@@ -50,7 +51,7 @@ const RadioLayout = ({
         id: chatResponse.conversation.id,
       },
     };
-    if (checkedRadio.length > 0) {
+    if (checkedRadio.length > 0 || choices.id === 'continue_assessment') {
       setButtonDisabled(false);
     }
     setChatMessage(body);
@@ -89,9 +90,15 @@ const RadioLayout = ({
     }
   }, []);
 
+  // useEffect(() => {
+  //   if (choices.type === 'generic' && choices.id === 'add_symptoms') {
+  //     setButtonDisabled(true);
+  //   }
+  // }, []);
+
   if (isNoSymptomFoundScreen(chatResponse.conversation.phase)) {
     return (
-      <Button onClick={() => navigate(-1)} fullWidth>
+      <Button onClick={() => navigate('/initSession')} fullWidth>
         Start a new consultation
       </Button>
     );

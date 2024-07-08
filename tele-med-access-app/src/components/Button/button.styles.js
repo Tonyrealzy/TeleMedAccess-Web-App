@@ -77,27 +77,17 @@ export const ButtonBackgroundDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 0%;
+    bottom: 5%;
     width: 100%;
     height: 90px;
     @media screen and (max-width: ${theme.device.desktop}) {
       position: fixed;
       left: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 1) 15%
-      );
     }
     @media screen and (max-width: ${theme.device.mobile}) {
       position: fixed;
       height:85px;
       left: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 1) 15%
-      );
     }
   `}
 `;

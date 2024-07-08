@@ -1,191 +1,186 @@
 @import "../../pages/styles/LandingPage.css";
 
+.backbtn {
+  padding: 1rem 0.5rem;
+}
 .InitSession {
-    background: linear-gradient(
-        45deg,
-        var(--color-secondary),
-        var(--color-primary),
-        var(--color-bg)
-    );
-    min-height: 100vh;
-    color: var(--color-secondary);
-    display: flex;
-    flex-direction: column;
-    color: var(--color-text);
-    animation: colors 12s ease-in-out infinite;
-    background-size: 400% 400%;
+  background: linear-gradient(
+    45deg,
+    var(--color-secondary),
+    var(--color-primary),
+    var(--color-bg)
+  );
+  min-height: 100vh;
+  width: 100%;
+  color: var(--color-secondary);
+  color: var(--color-text);
+  animation: colors 12s ease-in-out infinite;
+  background-size: 400% 400%;
+  justify-content: center;
+  padding: 1rem;
 }
 
 /* Background Colors Animations */
 @keyframes colors {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
-}
-
-.top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.image-top img {
-    display: block;
-    margin: 20px auto;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 
 .content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding-left: 80px;
-    margin: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
 }
 
 .session-text {
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .session-title {
-    font-size: 2.5em;
-    font-weight: bold;
-    padding-left: 30px;
-    margin-bottom: 80px;
-    margin-top: 30px;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0 1rem;
+  text-align: center;
 }
 
 .session-description {
-    margin: 30px;
-    font-size: 1em;
-    margin-top: 10px;
-    text-align: left;
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.session-image {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-}
-
-.session-image img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: swing 3s ease-in-out infinite;
-}
-
-/* image animation session*/
-@keyframes swing {
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(-20deg);
-    }
-    75% {
-        transform: rotate(15deg);
-    }
-}
-
-  
-.text-box {
-    background-color: var(--color-secondary);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
-    color: var(--color-text);
-    height: auto;
-    width: 400px;
-    text-align: center;
+.continue {
+  padding: 1rem;
 }
 
 /* accept button */
 .session-accept {
-    margin-left: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.session-accept input {
+  margin: 0.5rem 0.2rem 0;
+}
+.termsStatement {
+  padding: 0.5rem 2rem;
 }
 
-#continue {
-    margin-left: 30px;
+.session-image {
+  padding: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#backbtn {
-    margin-top: 30px;
-    margin-left: 20px;
+/* image animation session*/
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
 }
 
-/** small screen */
-@media screen and (max-width: 768px) {
-    .top {
-        align-items: center;
-    }
+.session-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  animation: swing 3s ease-in-out infinite;
+}
 
-    .content {
-        display: block;
-        width: 100%;
-        justify-content: space-between;
-        padding-left: 0;
-        margin: 0;
-    }
+.text-box {
+  background-color: var(--color-secondary);
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  margin: 1.5rem auto;
+  color: var(--color-text);
+  height: auto;
+  width: 450px;
+  font-size: 0.85rem;
+  text-align: center;
+  justify-content: center;
+}
 
-    .session-text {
-        text-align: left;
-        padding: 60px;
-    }
+/** mid and small screen */
+@media screen and (max-width: 1024px) {
+  .InitSession {
+    padding: 1rem 0.5rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    align-content: center;
+  }
+  .session-image img {
+    display: none;
+  }
+  .session-text {
+    text-align: left;
+  }
 
-    .session-title {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-left: 30px;
-    }
+  .session-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0rem;
+  }
 
-    .session-description {
-        margin: 30px;
-        font-size: 1em;
-        text-align: left;
-    }
+  .session-description {
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: left;
+  }
 
-    .session-image {
-        display: flex;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
+  .session-image {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
 
-    .session-image img {
-        width: 190px;
-        height: 190px;
-        border-radius: 50%;
-        opacity: 0.8;
-        animation: swing 3s ease-in-out infinite;
-    }
+  .session-accept {
+    font-size: 0.75rem;
+  }
 
-    .session-accept {
-        margin-left: 30px;
-        font-size: 0.8em;
-    }
-
-    .text-box {
-        background-color: var(--color-secondary);
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 10px;
-        color: var(--color-text);
-        height: auto;
-        width: 250px;
-    }
+  .text-box {
+    font-size: 0.75rem;
+    width: 90%;
+  }
+  .continue {
+    padding: 0rem;
+  }
+  #button1, #button2 {
+    align-items: center;
+    text-align: center;
+  }
+  #button2 {
+    width: 70%;
+  }
 }
