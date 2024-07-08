@@ -13,12 +13,12 @@ const LegalScreen = ({ confirmLegal, query }) => {
     <>
       <Header phase="Welcome" percentage={0} />
       <Heading kind="heading" as="h1">
-        Hi Adventurer...
+        Hello...
       </Heading>
 
       <p style={{marginBottom: '1.5rem'}}>
-        Before you embark on your session with the virtual doctor, we need you
-        to take care of a tiny, but very important task -agreeing to our Privacy
+        Before you begin your session with the virtual doctor, we need you
+        to take care of a tiny, but very important task - agreeing to our Privacy
         Agreement terms. But don't worry, we've made it as simple and delightful
         as possible.
       </p>

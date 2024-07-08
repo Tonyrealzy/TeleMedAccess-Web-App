@@ -19,11 +19,11 @@ export const CenteringDiv = styled.div`
     justify-content: center;
     align-items: center;
     margin: 10% auto;
-    @media screen and (min-width: ${theme.device.desktop}) {
+    @media screen and (max-width: ${theme.device.desktop}) {
       display: flex;
       flex-direction: row;
       padding: 1rem;
-      margin: auto;
+      margin: 5% auto;
       width: 80% !important;
       align-items: center;
     }

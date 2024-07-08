@@ -10,8 +10,7 @@ const Message = ({ message, messageNumber, scenario }) => {
   const noSymptomsMessage = `I'm sorry, I couldn't find your symptoms`;
   let headingType = "heading";
 
-  if (value && value?.length > 100)
-  {
+  if (value && value?.length > 100) {
     headingType = "tertiary";
   }
 

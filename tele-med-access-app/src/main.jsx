@@ -10,8 +10,8 @@ if (import.meta.env.NODE_ENV === "production") {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <ErrorBoundary> */}
+    <ErrorBoundary>
       <App />
-    {/* </ErrorBoundary> */}
+    </ErrorBoundary>
   </React.StrictMode>
-); 
+);

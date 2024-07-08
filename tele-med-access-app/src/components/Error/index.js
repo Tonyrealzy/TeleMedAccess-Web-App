@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import Custom404 from "../../pages/Error404Page";
 import Logger from "../Logger/Logger";
+import {
+  ErrorContainer,
+  ErrorContentContainer,
+  ErrorContent,
+  Title,
+  Description,
+  ButtonContainer,
+  Button,
+} from "./ErrorRender";
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -18,18 +26,31 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError)
-      return <ErrorFallback />;
+      return (
+        <ErrorContainer>
+          <ErrorContentContainer>
+            <ErrorContent>
+              <Title>404</Title>
+              <Description>Oops!!! Page Not Found</Description>
+              <Description>
+                We're sorry the page you requested could not be found. Please go
+                back to the previous page or the homepage.
+              </Description>
+              <ButtonContainer>
+                <Button onClick={() => {window.location.replace('/')}} fullwidth="true">
+                  Start a new symptom checker
+                </Button>
+              </ButtonContainer>
+            </ErrorContent>
+            <ErrorImage>
+              <Image src={erropic} alt="Error illustration" />
+            </ErrorImage>
+          </ErrorContentContainer>
+        </ErrorContainer>
+      );
 
     return this.props.children;
   }
-}
-
-function ErrorFallback() {
-  const handleGoHome = () => {
-    window.location.replace("/initSession");
-  };
-
-  return (<Custom404 onButtonClick={() => handleGoHome} />);
 }
 
 export default ErrorBoundary;

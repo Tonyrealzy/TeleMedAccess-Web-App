@@ -27,6 +27,8 @@ const RadioLayout = ({
 
     const exclude = choices.filter((choice) => choice.id !== checkedRadio);
     const include = choices.filter((choice) => choice.id === checkedRadio);
+    // const choiceNotToShow = choices.filter((choice) => choice.id === continue_assessment);
+
     const isAnswerTypeGeneric = type === "generic";
 
     const answerInputs = isAnswerTypeGeneric
@@ -49,7 +51,7 @@ const RadioLayout = ({
         id: chatResponse.conversation.id,
       },
     };
-    if (checkedRadio.length > 0) {
+    if (checkedRadio.length > 0 || choices.id === 'continue_assessment') {
       setButtonDisabled(false);
     }
     setChatMessage(body);

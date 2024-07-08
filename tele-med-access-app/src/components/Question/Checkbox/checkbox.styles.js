@@ -24,7 +24,7 @@ export const Label = styled.div`
 export const StyledCheckbox = styled.input`
   ${({ id, checked }) => {
     const commonStyles = css`
-      background-color: ${checked ? "red" : "transparent"};
+      background-color: ${checked ? "red" : `${theme.shade.a}`};
       margin: 0px 10px 0px 0px;
       height: 20px;
       width: 20px;
@@ -65,7 +65,7 @@ export const OverflowContainer = styled.div`
 export const StyledDivider = styled.div`
   ${({ theme }) => css`
     margin: 24px 0;
-    background-color: ${theme.shade.d};
+    background-color: ${theme.shade.a};
     border-color: ${theme.secondary.divider};
     color: ${theme.secondary.divider};
     height: 1px;
