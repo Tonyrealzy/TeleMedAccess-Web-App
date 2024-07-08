@@ -18,7 +18,7 @@ export const CenteringDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10% auto;
+    margin: 5% auto;
     @media screen and (max-width: ${theme.device.desktop}) {
       display: flex;
       flex-direction: row;
@@ -85,8 +85,9 @@ export const PageRender = styled.div`
     align-items: center;
     animation: ${gradientBackground} 10s ease infinite;
     background-size: 400% 400%;
-    @media (max-width: ${theme.device.desktop}) {
+    @media (min-width: ${theme.device.desktop}) {
       min-height: 100vh !important;
+      padding: 0 1rem;
     }
     @media (max-width: ${theme.device.mobile}) {
       min-height: 100vh !important;

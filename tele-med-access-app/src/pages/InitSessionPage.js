@@ -7,8 +7,8 @@ import "../pages/styles/InitSessionPage.css";
 import hearticon from "../assets/initsession/pic.jpg";
 
 const InitSessionPage = () => {
-  // const { agreed, setAgreed } = useAuth();
-  const [ agreed, setAgreed ] = useState(false);
+  const { agreed, setAgreed } = useAuth();
+  // const [ agreed, setAgreed ] = useState(false);
   const navigate = useNavigate();
   const [gottenSessionID, setGottenSessionID] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -54,7 +54,7 @@ const InitSessionPage = () => {
                   Remember, you can always chat with our AI Doctor for
                   assistance. Let's make today a healthy day!
                 </p>
-                <span id="continue">
+                <span className="continue">
                   <PrimaryButton onClick={() => navigate("/virtualDoctor")}>
                     Continue
                   </PrimaryButton>
@@ -91,7 +91,7 @@ const InitSessionPage = () => {
                   With our app, you can easily chat with our AI Doctor and get
                   the support you need.
                 </p>
-                <span id="continue">
+                <span className="continue">
                   <PrimaryButton onClick={startMedicalSession}>
                     Start A Session With Doctor
                   </PrimaryButton>
@@ -109,8 +109,10 @@ const InitSessionPage = () => {
                         />
                         I have read, understood, and I accept and agree to
                         comply with the{" "}
-                        <Link to="/terms" style={{color: '#007bff'}}>Terms and Conditions</Link> of Use of
-                        TeleMedAccess web app.
+                        <Link to="/terms" style={{ color: "#007bff" }}>
+                          Terms and Conditions
+                        </Link>{" "}
+                        of Use of TeleMedAccess web app.
                       </p>
                       <br />
                       <PrimaryButton

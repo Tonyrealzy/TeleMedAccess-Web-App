@@ -3,14 +3,18 @@ import React, { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [agreed, setAgreed] = useState(localStorage.getItem('agreedToTerms') === 'true');
+    const [agreed, setAgreed] = useState(false);
 
     React.useEffect(() => {
-        localStorage.setItem('agreedToTerms', agreed);
-    });
+        const agreedState = sessionStorage.getItem('agreedToTerms');
+        if (agreedState === 'true') {
+            setAgreed(true);
+            sessionStorage.setItem('agreedToTerms', agreed);
+        };
+    }, []);
 
     return (
-        <AuthContext.Provider value={{ sessionID, startSession, endSession, agreed, setAgreed }}>
+        <AuthContext.Provider value={{ agreed, setAgreed }}>
             {children}
         </AuthContext.Provider>
     );

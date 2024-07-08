@@ -24,7 +24,7 @@ export const Label = styled.div`
 export const StyledCheckbox = styled.input`
   ${({ id, checked }) => {
     const commonStyles = css`
-      background-color: ${checked ? "red" : `${theme.shade.a}`};
+      background-color: ${checked ? "red" : "white"};
       margin: 0px 10px 0px 0px;
       height: 20px;
       width: 20px;

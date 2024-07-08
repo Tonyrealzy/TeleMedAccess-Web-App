@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import erropic from "../../assets/error/error1.jpg";
-import { useNavigate } from "react-router-dom";
 
 export const ErrorContainer = styled.div`
   display: flex;

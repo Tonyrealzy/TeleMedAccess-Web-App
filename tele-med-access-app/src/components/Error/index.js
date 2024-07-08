@@ -4,11 +4,15 @@ import {
   ErrorContainer,
   ErrorContentContainer,
   ErrorContent,
+  ErrorImage,
+  Image,
   Title,
   Description,
   ButtonContainer,
   Button,
 } from "./ErrorRender";
+import ErrorPic from "./error1.jpg";
+
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -43,7 +47,7 @@ class ErrorBoundary extends Component {
               </ButtonContainer>
             </ErrorContent>
             <ErrorImage>
-              <Image src={erropic} alt="Error illustration" />
+              <Image src={ErrorPic} alt="Error illustration" />
             </ErrorImage>
           </ErrorContentContainer>
         </ErrorContainer>

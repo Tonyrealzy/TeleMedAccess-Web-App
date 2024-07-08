@@ -6,11 +6,12 @@ import { StyleSheetManager } from "styled-components";
 import {
   AppContainer,
   CenteringDiv,
-  PageRender
+  PageRender,
 } from "./components/Display/display.styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loader from "./components/Screens/Loading/Loader";
-// import ProtectedRoute from './ProtectedRoute';
+import { AuthProvider } from "./AuthContext";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Custom404 = lazy(() => import("./pages/Error404Page"));
 const IntermediaryPage = lazy(() => import("./pages/IntermediaryPage"));
@@ -36,21 +37,29 @@ function App() {
                 </PageRender>
               }
             >
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route
-                  exact
-                  path="/initSession"
-                  element={<InitSessionPage />}
-                />
-                <Route
-                  exact
-                  path="/virtualDoctor"
-                  element={<IntermediaryPage />}
-                />
-                <Route exact path="/terms" element={<TermsConditionsPage />} />
-                <Route path="*" element={<Custom404 />} />
-              </Routes>
+              <AuthProvider>
+                <Routes>
+                  <Route path="/" element={<LandingPage />} />
+                  <Route
+                    exact
+                    path="/initSession"
+                    element={<InitSessionPage />}
+                  />
+                  <Route element={<ProtectedRoute />}>
+                    <Route
+                      exact
+                      path="/virtualDoctor"
+                      element={<IntermediaryPage />}
+                    />
+                  </Route>
+                  <Route
+                    exact
+                    path="/terms"
+                    element={<TermsConditionsPage />}
+                  />
+                  <Route path="*" element={<Custom404 />} />
+                </Routes>
+              </AuthProvider>
             </Suspense>
           </BrowserRouter>
         </ThemeCreator>
