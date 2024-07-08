@@ -7,7 +7,7 @@ export const Input = styled.input`
 export const Label = styled.label`
   ${({ theme }) => css`
     align-items: center;
-    background: ${theme.shade.b};
+    background: ${theme.shade.a};
     border: 1px solid transparent;
     border-radius: ${theme.spacing.xxs};
     cursor: pointer;

@@ -138,7 +138,7 @@ const Consultation = ({ report }) => {
               </ButtonContainer>
               <ArticleContainer className="dark">
                 <span>
-                  The suggested next steps are base on a group of people with
+                  The suggested next steps are based on a group of people with
                   similar characteristics such as your age, sex and health
                   background, who are generally healthy and don’t suffer from
                   any chronic or rare medical conditions. Healthily can’t
@@ -161,8 +161,8 @@ const Consultation = ({ report }) => {
                 Track your symptoms
               </Button>*/}
 
-              <Button onClick={() => router.reload()} fullWidth>
-                That's all, thanks
+              <Button onClick={() => router('/')} fullWidth>
+                That's all, thanks!
               </Button>
             </ButtonContainer>
           )}

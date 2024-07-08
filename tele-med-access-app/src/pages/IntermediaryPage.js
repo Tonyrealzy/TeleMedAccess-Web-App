@@ -41,25 +41,23 @@ export default function IntermediaryPage({ query }) {
   }, []);
 
   return (
-    <>
-      <PageRender>
-        <StatusBarDiv />
-        <CenteringDiv>
-          {!legalAgreed ? (
-            <AppContainer>
-              {loading ? (
-                <Loader />
-              ) : (
-                <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
-              )}
-            </AppContainer>
-          ) : (
-            <AppContainer>
-              {loading ? <Loader /> : <Display token={token} query={query} />}
-            </AppContainer>
-          )}
-        </CenteringDiv>
-      </PageRender>
-    </>
+    <PageRender>
+      <StatusBarDiv />
+      <CenteringDiv>
+        {!legalAgreed ? (
+          <AppContainer>
+            {loading ? (
+              <Loader />
+            ) : (
+              <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
+            )}
+          </AppContainer>
+        ) : (
+          <AppContainer>
+            {loading ? <Loader /> : <Display token={token} query={query} />}
+          </AppContainer>
+        )}
+      </CenteringDiv>
+    </PageRender>
   );
 }

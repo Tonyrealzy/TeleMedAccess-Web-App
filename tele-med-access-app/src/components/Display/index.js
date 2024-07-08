@@ -8,8 +8,6 @@ import Report from "../Report";
 import { Header } from "../Header";
 import Confirmation from "../Screens/Confirmation";
 import { getProgressTitle } from "../../utils/progressTitle";
-// import SkeletonLoader from "../Screens/Loading/Skeleton";
-// import { LoadingScreen } from "../Screens/Loading/LoadingScreen";
 import Loader from "../Screens/Loading/Loader";
 
 export const isReportReady = (response) =>

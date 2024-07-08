@@ -10,7 +10,6 @@ import { isNoSymptomFoundScreen } from "../../../utils/chatbot";
 
 const RadioLayout = ({
   choices = [],
-  buttonText,
   chatResponse,
   setChatMessage,
   handleBackButton,
@@ -89,9 +88,15 @@ const RadioLayout = ({
     }
   }, []);
 
+  // useEffect(() => {
+  //   if (choices.type === 'generic' && choices.id === 'add_symptoms') {
+  //     setButtonDisabled(true);
+  //   }
+  // }, []);
+
   if (isNoSymptomFoundScreen(chatResponse.conversation.phase)) {
     return (
-      <Button onClick={() => navigate(-1)} fullWidth>
+      <Button onClick={() => navigate('/initSession')} fullWidth>
         Start a new consultation
       </Button>
     );
