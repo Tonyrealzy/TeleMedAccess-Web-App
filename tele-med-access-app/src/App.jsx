@@ -23,7 +23,7 @@ function App() {
               <Routes>
               <Route path="/" element={<LandingPage/>} />
               <Route exact path="/initSession" element={<InitSessionPage/>} />
-                <Route path="/virtualDoctor" element={<IntermediaryPage />} />
+                <Route exact path="/virtualDoctor" element={<IntermediaryPage />} />
                 <Route exact path="/terms" element={<TermsConditionsPage/>} />
                 <Route path="*" element={<Custom404 />} />
               </Routes>

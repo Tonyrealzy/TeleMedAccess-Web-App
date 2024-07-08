@@ -112,7 +112,7 @@ const InitSessionPage = () => {
                         />
                         I have read, understood, and I accept and agree to
                         comply with the{" "}
-                        <Link to="/terms">Terms and Conditions</Link> of Use of
+                        <Link to="/terms" style={{color: '#007bff'}}>Terms and Conditions</Link> of Use of
                         TeleMedAccess web app.
                       </p>
                       <br />

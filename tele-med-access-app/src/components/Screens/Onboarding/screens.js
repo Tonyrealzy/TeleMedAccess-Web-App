@@ -4,11 +4,11 @@ export const screens = [
     messages: [
       {
         type: "text",
-        text: "Welcome to Healthily - Smart Symptom Checker.",
+        text: "Welcome to TEMA - Smart Symptom Checker.",
       },
       {
         type: "text",
-        text: "In order to make sure I give most accurate information I need to first ask a few questions.",
+        text: "In order to make sure I give most accurate information I need to first ask a few questions. Alright?",
       },
       {
         type: "text",
@@ -71,7 +71,7 @@ export const screens = [
       },
       {
         type: "text",
-        text: "I'm a chatbot, so short sentences work best.",
+        text: "I'm a chatbot, so short descriptive sentences work best.",
       },
     ],
     constraints: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import erropic from "../assets/error/error1.jpg";
@@ -104,7 +104,14 @@ const Button = styled.button`
 `;
 
 export default function Custom404() {
+  const [backToHome, setBackToHome] = useState(false);
   const navigate = useNavigate();
+
+  const handleProceed = () => {
+    setBackToHome(!backToHome);
+    navigate('/');
+  };
+
 
   return (
     <ErrorContainer>
@@ -117,7 +124,7 @@ export default function Custom404() {
             Please go back to the previous page or the homepage.
           </Description>
           <ButtonContainer>
-          <Button onClick={() => navigate("/")} fullWidth>
+          <Button onClick={() => handleProceed} fullwidth="true">
             Start a new symptom checker
           </Button>
           </ButtonContainer>
