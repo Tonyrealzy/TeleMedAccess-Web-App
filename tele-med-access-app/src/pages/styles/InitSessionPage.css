@@ -1,5 +1,8 @@
 @import "../../pages/styles/LandingPage.css";
 
+.backbtn {
+  padding: 1rem 0.5rem;
+}
 .InitSession {
   background: linear-gradient(
     45deg,
@@ -10,12 +13,11 @@
   min-height: 100vh;
   width: 100%;
   color: var(--color-secondary);
-  display: flex;
-  flex-direction: column;
   color: var(--color-text);
   animation: colors 12s ease-in-out infinite;
   background-size: 400% 400%;
   justify-content: center;
+  padding: 1rem;
 }
 
 /* Background Colors Animations */
@@ -31,64 +33,61 @@
   }
 }
 
-.top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.image-top img {
-  display: block;
-  margin: 20px auto;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-}
-
 .content {
   display: flex;
-  width: 100%;
+  flex-direction: row;
   justify-content: space-between;
-  padding-left: 80px;
-  margin: 30px 80px;
+  padding: 1rem 0.5rem;
 }
 
 .session-text {
-  flex: 1;
-  text-align: left;
-}
-
-.session-title {
-  font-size: 2.5em;
-  font-weight: bold;
-  padding-left: 30px;
-  margin-bottom: 40px;
-  margin-top: 20px;
-}
-
-.session-description {
-  margin: 30px;
-  font-size: 1em;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.session-image {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
 }
 
-.session-image img {
-  width: 220px;
-  height: 220px;
-  margin: 0 auto 30px;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: swing 3s ease-in-out infinite;
+.session-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.session-description {
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.continue {
+  padding: 1rem;
+}
+
+/* accept button */
+.session-accept {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.session-accept input {
+  margin: 0.5rem 0.2rem 0;
+}
+.termsStatement {
+  padding: 0.5rem 2rem;
+}
+
+.session-image {
+  padding: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* image animation session*/
@@ -105,74 +104,52 @@
   }
 }
 
+.session-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  animation: swing 3s ease-in-out infinite;
+}
+
 .text-box {
   background-color: var(--color-secondary);
-  padding: 20px;
+  padding: 1rem 0.5rem;
   border-radius: 10px;
-  margin: 10px auto 0;
+  margin: 1.5rem auto;
   color: var(--color-text);
   height: auto;
-  width: 350px;
-  font-size: 0.8rem;
+  width: 450px;
+  font-size: 0.85rem;
   text-align: center;
+  justify-content: center;
 }
 
-/* accept button */
-.session-accept {
-  margin-left: 30px;
-  margin-top: 30px;
-  font-size: 0.8rem;
-}
-.session-accept input {
-    margin-top: 15px;
-    margin-right: 5px;
-}
-
-.continue {
-  margin-left: 30px;
-}
-
-#backbtn {
-  margin-top: 30px;
-  margin-left: 20px;
-}
-
-/** small screen */
+/** mid and small screen */
 @media screen and (max-width: 1024px) {
   .InitSession {
-    justify-content: center;
-    margin: auto 0;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
   .content {
-    padding-left: 0;
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    align-content: center;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .InitSession {
-    justify-content: center;
+  .session-image img {
+    display: none;
   }
-  .top {
-    align-items: center;
-  }
-
-  .content {
-    display: block;
-    width: 100%;
-    justify-content: space-between;
-    margin: 0;
-  }
-
   .session-text {
     text-align: left;
   }
 
   .session-title {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin: 50px 0 0 0;
+    margin: 0rem;
   }
 
   .session-description {
@@ -188,30 +165,22 @@
     margin: 0;
   }
 
-  .session-image img {
-    display: none;
-  }
-
   .session-accept {
-    padding: 10px 0 50px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .text-box {
-    background-color: var(--color-secondary);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px auto 20px;
-    color: var(--color-text);
-    height: auto;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     width: 90%;
   }
   .continue {
-    margin:  15px auto 30px;
+    padding: 0rem;
   }
-  #backbtn {
-    margin-top: 10px;
-    margin-left: 10px;
+  #button1, #button2 {
+    align-items: center;
+    text-align: center;
+  }
+  #button2 {
+    width: 70%;
   }
 }

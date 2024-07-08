@@ -46,6 +46,9 @@ section {
   .button {
     margin: 1rem 1rem 3rem 1rem;
   }
+  .Termscontent {
+    padding: 1.5rem 0 1rem;
+  }
   .TermsandCondition h1 {
     font-size: 1rem;
   }
