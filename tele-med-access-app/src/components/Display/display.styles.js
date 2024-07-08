@@ -87,10 +87,11 @@ export const PageRender = styled.div`
     background-size: 400% 400%;
     @media (min-width: ${theme.device.desktop}) {
       min-height: 100vh !important;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
     @media (max-width: ${theme.device.mobile}) {
       min-height: 100vh !important;
+      padding: 0 0.5rem;
     }
   `};
 `;
