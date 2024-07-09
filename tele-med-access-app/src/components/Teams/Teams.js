@@ -15,7 +15,7 @@ const Teams = () => {
                     </div>
                     <div className="member-info">
                         <h3 className="member-name">Arinze Umehobi</h3>
-                        <p className="member-role">Frontend/Backend Developer</p>
+                        <p className="member-role">Fullstack Developer</p>
                         <p className="member-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero quam, condimentum non orci id, blandit ultricies tortor.</p>
                         <ul className="member-social-links">
                             <li><a href="https://www.linkedin.com/in/arinzeumehobi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin" aria-hidden="true"></i></a></li>
