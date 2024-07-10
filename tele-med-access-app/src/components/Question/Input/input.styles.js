@@ -16,15 +16,14 @@ export const Input = styled.input`
     &:focus-visible {
       outline: none;
     }
-    position: relative;
-    z-index: 2;
     padding-top: 25px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+    font-family: Libre Franklin, sans-serif;
     outline: none;
     border: none;
     background-color: transparent;
     width: 100%;
-    font-size: ${theme.fontsize.body};
+    font-size: ${theme.fontsize.sm};
     appearance: none;
   .input-label::not(&:placeholder-shown) {
     & + ${labelSmall}

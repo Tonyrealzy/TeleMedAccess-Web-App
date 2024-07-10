@@ -18,12 +18,10 @@ export const CenteringDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5% auto;
     @media screen and (max-width: ${theme.device.desktop}) {
       display: flex;
       flex-direction: row;
       padding: 1rem;
-      margin: 5% auto;
       width: 80% !important;
       align-items: center;
     }
@@ -32,10 +30,11 @@ export const CenteringDiv = styled.div`
 
 export const AppContainer = styled.div`
   ${({ theme }) => css`
+    height: auto;
+    min-height: 80vh;
     word-break: break-word;
-    margin: 1rem;
+    margin: 5rem auto;
     @media screen and (min-width: ${theme.device.desktop}) {
-      position: relative;
       margin-top: 52px;
       justify-content: center;
       align-items: center;
@@ -64,7 +63,6 @@ export const StatusBarDiv = styled.div`
     left: 0;
     width: 100%;
     @media (max-width: ${theme.device.desktop}) {
-      background: transparent;
       position: absolute;
       height: 36px;
       border-bottom: 1px solid ${theme.shade.d};
@@ -75,7 +73,14 @@ export const StatusBarDiv = styled.div`
 
 export const PageRender = styled.div`
   ${({ theme }) => css`
-    background: linear-gradient(135deg, #a8d0e6, #f0f6fc, #edf5fc, #f5f3e9);
+    background: linear-gradient(
+      135deg,
+      #f2e8cf,
+      #f2e8cf,
+      #add8e6,
+      var(--color-darkbg)
+    );
+    position: relative;
     min-height: 100vh !important;
     display: flex;
     flex-direction: column;

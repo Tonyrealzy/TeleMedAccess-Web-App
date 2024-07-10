@@ -11,6 +11,7 @@ import {
 import Display from "../components/Display";
 import Loader from "../components/Screens/Loading/Loader";
 import Logger from "../components/Logger/Logger";
+import DesktopViewCloseIcon from "../components/StatusBar/desktopViewCloseIcon";
 
 export default function IntermediaryPage({ query }) {
   const [legalAgreed, setLegalAgreed] = useState(false);
@@ -43,18 +44,27 @@ export default function IntermediaryPage({ query }) {
   return (
     <PageRender>
       <StatusBarDiv />
+      <DesktopViewCloseIcon />
       <CenteringDiv>
         {!legalAgreed ? (
           <AppContainer>
             {loading ? (
               <Loader />
             ) : (
-              <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
+              <>
+                <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
+              </>
             )}
           </AppContainer>
         ) : (
           <AppContainer>
-            {loading ? <Loader /> : <Display token={token} query={query} />}
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <Display token={token} query={query} />
+              </>
+            )}
           </AppContainer>
         )}
       </CenteringDiv>

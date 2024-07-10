@@ -35,7 +35,7 @@ const Input = forwardRef(
             id={id}
             type={type}
             value={value}
-            placeholder=" "
+            placeholder={label}
             required={required}
             aria-invalid={hasError}
             disabled={disabled}
@@ -49,9 +49,9 @@ const Input = forwardRef(
             {...rest}
           />
 
-          <Label htmlFor={id} className="input-label">
+          {/* <Label htmlFor={id} className="input-label">
             {label}
-          </Label>
+          </Label> */}
         </InputInnerContainer>
       </InputContainer>
     );

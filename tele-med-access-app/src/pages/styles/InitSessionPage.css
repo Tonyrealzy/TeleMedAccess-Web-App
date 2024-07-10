@@ -7,8 +7,8 @@
   background: linear-gradient(
     45deg,
     var(--color-secondary),
-    var(--color-primary),
-    var(--color-bg)
+    var(--color-darkbg),
+    var(--color-primary)
   );
   min-height: 100vh;
   width: 100%;
@@ -33,6 +33,10 @@
   }
 }
 
+.article {
+  display: flex;
+  justify-content: center;
+}
 .content {
   display: flex;
   flex-direction: row;

@@ -42,35 +42,37 @@ const InitSessionPage = () => {
             <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           </span>
           <br></br>
-          <div className="content">
-            <div className="session-text">
-              <h3 className="session-title">Welcome back, TEMA User</h3>
-              <p className="session-description">
-                We're glad to see you again! At TEMA, we're committed to
-                supporting your journey to better health. <br />
-                <br />
-                We're dedicated to bringing quality healthcare to rural and
-                underserved areas. <br></br>
-                Remember, you can always chat with our AI Doctor for assistance.
-                Let's make today a healthy day!
-              </p>
-              <span className="continue">
-                <PrimaryButton onClick={() => navigate("/virtualDoctor")}>
-                  Continue
-                </PrimaryButton>
-              </span>
-            </div>
-            <div className="session-image">
-              <img src={hearticon} alt="Doctor" />
-              <div className="text-box">
-                <p>
-                  Discover the power of TEMA's AI Doctor—your virtual healthcare
-                  companion. Get personalized medical advice and support
-                  anytime, anywhere.
+          <article className="article">
+            <div className="content">
+              <div className="session-text">
+                <h3 className="session-title">Welcome back, TEMA User</h3>
+                <p className="session-description">
+                  We're glad to see you again! At TEMA, we're committed to
+                  supporting your journey to better health. <br />
+                  <br />
+                  We're dedicated to bringing quality healthcare to rural and
+                  underserved areas. <br></br>
+                  Remember, you can always chat with our AI Doctor for assistance.
+                  Let's make today a healthy day!
                 </p>
+                <span className="continue">
+                  <PrimaryButton onClick={() => navigate("/virtualDoctor")}>
+                    Continue
+                  </PrimaryButton>
+                </span>
+              </div>
+              <div className="session-image">
+                <img src={hearticon} alt="Doctor" />
+                <div className="text-box">
+                  <p>
+                    Discover the power of TEMA's AI Doctor—your virtual healthcare
+                    companion. Get personalized medical advice and support
+                    anytime, anywhere.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       ) : (
         <div className="InitSession">
@@ -78,67 +80,69 @@ const InitSessionPage = () => {
             <PrimaryButton onClick={() => navigate(-1)}>Back</PrimaryButton>
           </span>
           <br></br>
-          <div className="content">
-            <div className="session-text">
-              <h3 className="session-title">Are you a New User?</h3>
-              <p className="session-description">
-                Welcome to TEMA! Your journey to better health starts here.{" "}
-                <br />
-                <br />
-                We're thrilled to have you on board. At TEMA, we are dedicated
-                to bringing quality healthcare to rural and underserved areas.
-                With our app, you can easily chat with our AI Doctor and get the
-                support you need.
-              </p>
-              <span className="continue">
-                <PrimaryButton id="button1" onClick={startMedicalSession}>
-                  Start A Session With Doctor
-                </PrimaryButton>
-              </span>
-              <br />
-              <section>
-                {gottenSessionID && (
-                  <div className="session-accept">
-                    <aside className="termsStatement">
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={acceptTermsConditions}
-                        value={checkboxValue}
-                      />
-                      I have read, understood, and I accept and agree to comply
-                      with the{" "}
-                      <span>
-                        <Link to="/terms" style={{ color: "#007bff" }}>
-                          Terms and Conditions
-                        </Link>
-                      </span>{" "}
-                      of Use of TeleMedAccess web app.
-                    </aside>
-                    <br></br>
-                    <PrimaryButton
-                      id="button2"
-                      onClick={handleProceed}
-                      disabled={!checked || !gottenSessionID}
-                    >
-                      Proceed
-                    </PrimaryButton>
-                  </div>
-                )}
-              </section>
-            </div>
-            <div className="session-image">
-              <img src={hearticon} alt="Heart" />
-              <div className="text-box">
-                <p>
-                  TEMA provides the tools you need to manage your health
-                  effectively. Whether you're seeking medical advice from our AI
-                  Doctor or accessing your health information through
-                  TeleMedAccess app(TEMA), we have you covered.
+          <article className="article">
+            <div className="content">
+              <div className="session-text">
+                <h3 className="session-title">Are you a New User?</h3>
+                <p className="session-description">
+                  Welcome to TEMA! Your journey to better health starts here.{" "}
+                  <br />
+                  <br />
+                  We're thrilled to have you on board. At TEMA, we are dedicated
+                  to bringing quality healthcare to rural and underserved areas.
+                  With our app, you can easily chat with our AI Doctor and get the
+                  support you need.
                 </p>
+                <span className="continue">
+                  <PrimaryButton id="button1" onClick={startMedicalSession}>
+                    Start A Session With Doctor
+                  </PrimaryButton>
+                </span>
+                <br />
+                <section>
+                  {gottenSessionID && (
+                    <div className="session-accept">
+                      <aside className="termsStatement">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={acceptTermsConditions}
+                          value={checkboxValue}
+                        />
+                        I have read, understood, and I accept and agree to comply
+                        with the{" "}
+                        <span>
+                          <Link to="/terms" style={{ color: "#ffa500" }}>
+                            Terms and Conditions
+                          </Link>
+                        </span>{" "}
+                        of Use of TeleMedAccess web app.
+                      </aside>
+                      <br></br>
+                      <PrimaryButton
+                        id="button2"
+                        onClick={handleProceed}
+                        disabled={!checked || !gottenSessionID}
+                      >
+                        Proceed
+                      </PrimaryButton>
+                    </div>
+                  )}
+                </section>
+              </div>
+              <div className="session-image">
+                <img src={hearticon} alt="Heart" />
+                <div className="text-box">
+                  <p>
+                    TEMA provides the tools you need to manage your health
+                    effectively. Whether you're seeking medical advice from our AI
+                    Doctor or accessing your health information through
+                    TeleMedAccess app(TEMA), we have you covered.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       )}
     </>

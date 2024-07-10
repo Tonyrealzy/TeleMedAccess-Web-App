@@ -101,10 +101,10 @@ html {
   }
 
   .hero-pic {
-    max-width: 50%;
+    max-width: 85%;
     border-radius: 50%;
     animation: none;
-    margin-bottom: 20px;
+    margin: 2.5rem 0;
   }
 
   .title {
