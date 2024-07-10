@@ -19,13 +19,13 @@ const ModalStyles = styled.div`
   position: absolute;
   justify-content: center;
   text-align: center;
-  top: 35%;
+  top: 40%;
   left: 12%;
   width: 76%;
   padding: 0.25rem;
   border-radius: 1rem;
   @media (min-width: 1024px) {
-   top: 30%;
+   top: 45%;
   left: 25%;
   width: 50%;
     padding: 0.25rem;
