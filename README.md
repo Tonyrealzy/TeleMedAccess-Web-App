@@ -4,7 +4,7 @@
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 # Virtual Doctor Website
-##### [http://your-virtual-doctor.netlify.app/]http://your-virtual-doctor.netlify.app/
+#### https://your-virtual-doctor.netlify.app/
 
 A React-based website that utilizes the Healthily API to allow users to communicate with a virtual doctor by enumerating their symptoms and receiving feedback until they get a diagnosis summary and recommendations.
 
