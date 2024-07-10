@@ -8,6 +8,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 A React-based website that utilizes the Healthily API to allow users to communicate with a virtual doctor by enumerating their symptoms and receiving feedback until they get a diagnosis summary and recommendations.
 
+
 ## Table of Contents
 
 - [Virtual Doctor Website](#virtual-doctor-website)
