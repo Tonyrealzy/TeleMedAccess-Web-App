@@ -44,19 +44,27 @@ export default function IntermediaryPage({ query }) {
   return (
     <PageRender>
       <StatusBarDiv />
+      <DesktopViewCloseIcon />
       <CenteringDiv>
-        <DesktopViewCloseIcon/>
         {!legalAgreed ? (
           <AppContainer>
             {loading ? (
               <Loader />
             ) : (
-              <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
+              <>
+                <LegalScreen confirmLegal={handleConfirmLegal} query={query} />
+              </>
             )}
           </AppContainer>
         ) : (
           <AppContainer>
-            {loading ? <Loader /> : <Display token={token} query={query} />}
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <Display token={token} query={query} />
+              </>
+            )}
           </AppContainer>
         )}
       </CenteringDiv>
