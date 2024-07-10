@@ -40,39 +40,30 @@ export const ProgressBarWrapper = styled.div`
 export const ProgressBar = styled.div`
   ${({ percentage, theme }) => css`
     width: ${percentage}%;
-    height: 0.4rem;
-    background-color: ${theme.secondary.i};
+    height: 1rem;
     border-radius: 20px;
   `}
 `;
 
 export const ExitButton = styled.button`
   ${({ theme }) => css`
-    padding: 0;
-    margin: 5px 0 0 0;
+    padding: 0.5rem;
+    margin: 0.8rem 0 0 0;
     border: none;
-    background-color: transparent;
   `}
 `;
 
 export const ExitButtonContainer = styled.div`
   ${({ theme }) => css`
-    @media (min-width: ${theme.device.desktop}) {
-      display: none;
-    }
+    display: in-line flex !important;
   `}
 `;
 
 export const DesktopCloseIconContainer = styled.div`
   ${({ theme }) => css`
-    display: flex;
+    display: in-line flex !important;
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 50px;
-    width: 40px;
-    @media (max-width: ${theme.device.desktop}) {
-      display: none;
-    }
+    top: 5%;
+    right: 5%;
   `}
 `;

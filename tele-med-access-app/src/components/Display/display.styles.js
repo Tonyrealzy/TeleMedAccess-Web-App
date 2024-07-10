@@ -64,7 +64,6 @@ export const StatusBarDiv = styled.div`
     left: 0;
     width: 100%;
     @media (max-width: ${theme.device.desktop}) {
-      background: transparent;
       position: absolute;
       height: 36px;
       border-bottom: 1px solid ${theme.shade.d};
@@ -75,9 +74,10 @@ export const StatusBarDiv = styled.div`
 
 export const PageRender = styled.div`
   ${({ theme }) => css`
-    background: linear-gradient(135deg, #a8d0e6, #f0f6fc, #edf5fc, #f5f3e9);
+    background: linear-gradient(135deg, #a8d0e6, #f0f6fc, #edf5fc, var(--color-secondary));
     min-height: 100vh !important;
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
     margin: auto;

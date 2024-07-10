@@ -35,10 +35,9 @@ class ErrorBoundary extends Component {
           <ErrorContentContainer>
             <ErrorContent>
               <Title>404</Title>
-              <Description>Oops!!! Page Not Found</Description>
+              <Description>Oops! An error occurred here!!!</Description>
               <Description>
-                We're sorry the page you requested could not be found. Please go
-                back to the previous page or the homepage.
+                We're sorry the page you requested could not be found. Please click on the button below to reload the previous page or the homepage.
               </Description>
               <ButtonContainer>
                 <Button onClick={() => {window.location.replace('/')}} fullwidth="true">
