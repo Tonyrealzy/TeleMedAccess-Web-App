@@ -1,77 +1,143 @@
-### This project directory contains files for the TeleMedAccess-Web-App. Would be re-modified later for documentation purpose.
+### This project directory contains files for the TeleMedAccess-Web-App for documentation purpose.
 
 # React + Vite
-
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Virtual Doctor Website
+##### [http://your-virtual-doctor.netlify.app/]http://your-virtual-doctor.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A React-based website that utilizes the Healthily API to allow users to communicate with a virtual doctor by enumerating their symptoms and receiving feedback until they get a diagnosis summary and recommendations.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm run dev`
+- [Virtual Doctor Website](#virtual-doctor-website)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Setup Instructions](#setup-instructions)
+  - [Usage Guidelines](#usage-guidelines)
+  - [Project Architecture](#project-architecture)
+  - [API Details](#api-details)
+  - [Deployment](#deployment)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact Information](#contact-information)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (version 14.x or higher)
+- npm (version 6.x or higher) or yarn (version 1.x or higher)
 
-### `npm test`
+## Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+   sh
+   git clone https://github.com/Tonyrealzy/TeleMedAccess-Web-App.git
+   cd tele-med-access-web-app
+   
 
-### `npm run build`
+2. Install dependencies:
+   sh
+   npm install
+   # or
+   yarn install
+   
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Create a `.env` file in the root directory and add the access parameters gotten from Healthily as environment variables:
+   
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start the development server:
+   sh
+   npm run dev
+   # or
+   yarn dev
+   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage Guidelines
 
-### `npm run eject`
+- Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
+- Interact with the virtual doctor by enumerating your symptoms.
+- Receive feedback and a diagnosis summary along with recommendations.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Architecture
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Frontend**: Built with React and Vite.
+  - `src/`
+    - `components/`: React components
+    - `pages/`: Page components
+    - `services/`: API services
+    - `App.jsx`: Main application component
+    - `main.jsx`: Entry point
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Backend**: Healthily API
+  - API endpoint for symptoms: `/search/symptoms`
+  - API endpoint for diagnosis: `/chat`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## API Details
 
-## Learn More
+- **Healthily API**:
+  - Base URL: `https://portal.your.md/v4`
+  - Endpoints:
+    - `/chat`: Endpoint for submitting symptoms
+      - **Request**:
+        json
+        {
+          "symptom": "headache"
+        }
+        
+      - **Response**:
+        json
+        {
+          "possibleConditions": ["migraine", "tension headache"]
+        }
+        
+    - `/search/symptoms`: Endpoint for getting diagnosis
+      - **Request**:
+        json
+        {
+          "symptoms": ["headache", "nausea"]
+        }
+        
+      - **Response**:
+        json
+        {
+          "diagnosis": "migraine",
+          "recommendations": ["rest", "hydration"]
+        }
+        
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Build the project:
+   sh
+   npm run build
+   # or
+   yarn build
+   
 
-### Code Splitting
+2. Deploy the contents of the `dist` directory to your server or preferred hosting service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+1. Fork the repository.
+2. Create a new branch:
+   sh
+   git checkout -b feature/your-feature
+   
+3. Commit your changes:
+   sh
+   git commit -m 'Add some feature'
+   
+4. Push to the branch:
+   sh
+   git push origin feature/your-feature
+   
+5. Open a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact Information
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For support or inquiries, please contact [umehobiarinze2@gmail.com](umehobiarinze2@gmail.com).
