@@ -6,11 +6,11 @@ import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 
 const Overlay = styled.div`
-  padding: 2.5rem;
+  padding: 2.75rem;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
   pointer-events: all;
-  margin: 1rem;
+  margin: 0.25rem;
 `;
 
 const ModalStyles = styled.div`
@@ -22,12 +22,14 @@ const ModalStyles = styled.div`
   top: 35%;
   left: 12%;
   width: 76%;
-  padding: 0.5rem;
+  padding: 0.25rem;
   border-radius: 1rem;
   @media (min-width: 1024px) {
    top: 30%;
   left: 25%;
-  width: 50%;}
+  width: 50%;
+    padding: 0.25rem;
+  }
 `;
 
 const DesktopViewCloseIcon = () => {

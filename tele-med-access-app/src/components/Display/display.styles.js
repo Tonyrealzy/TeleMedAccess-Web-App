@@ -15,6 +15,7 @@ const gradientBackground = keyframes`
 export const CenteringDiv = styled.div`
   ${({ theme }) => css`
     display: flex;
+    // position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -32,10 +33,10 @@ export const CenteringDiv = styled.div`
 
 export const AppContainer = styled.div`
   ${({ theme }) => css`
+  position: relative;
     word-break: break-word;
     margin: 1rem;
     @media screen and (min-width: ${theme.device.desktop}) {
-      position: relative;
       margin-top: 52px;
       justify-content: center;
       align-items: center;
@@ -74,10 +75,9 @@ export const StatusBarDiv = styled.div`
 
 export const PageRender = styled.div`
   ${({ theme }) => css`
-    background: linear-gradient(135deg, #a8d0e6, #f0f6fc, #edf5fc, var(--color-secondary));
+    background: linear-gradient(135deg, #f2e8cf, #f2e8cf, #add8e6, var(--color-sesondary));
     min-height: 100vh !important;
     display: flex;
-    position: relative;
     flex-direction: column;
     width: 100%;
     margin: auto;
