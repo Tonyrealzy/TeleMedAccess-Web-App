@@ -16,7 +16,7 @@ const Overlay = styled.div`
 const ModalStyles = styled.div`
   background-color: #f2e8cf;
   fontfamily: Libre Franklin; sans-serif;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   text-align: center;
   top: 40%;
@@ -25,7 +25,7 @@ const ModalStyles = styled.div`
   padding: 0.25rem;
   border-radius: 1rem;
   @media (min-width: 1024px) {
-   top: 45%;
+   top: 35%;
   left: 25%;
   width: 50%;
     padding: 0.25rem;
