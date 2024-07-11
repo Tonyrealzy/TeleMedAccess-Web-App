@@ -26,6 +26,7 @@ section {
   color: #f0a500;
   font-size: 0.8rem;
   font-weight: 600;
+  padding: 0.75rem 2rem 0;
 }
 .TermsandCondition h2:hover {
  font-size: 0.81rem;
@@ -58,6 +59,7 @@ section {
   }
   .TermsandCondition h2 {
     font-size: 0.7rem;
+    padding: 0.75rem 2rem 0;
   }
   .TermsandCondition h2:hover {
     font-size: 0.71rem;
