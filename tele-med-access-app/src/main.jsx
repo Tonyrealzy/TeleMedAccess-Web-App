@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import ErrorBoundary from "./components/Error";
 import disableDevtool from "disable-devtool";
 
-if (import.meta.env.NODE_ENV === "production") {
+if (import.meta.env.VITE_APP_NODE_ENV==="production") {
   disableDevtool();
 }
 
